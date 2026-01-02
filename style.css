@@ -1631,6 +1631,83 @@ footer .socials a:hover {
         box-shadow: 0 15px 40px rgba(201,162,77,0.6);
     }
 }
+/* ==========================
+   BURGER CLASSIQUE
+========================== */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 24px;
+    height: 3px;
+    background: #2b2b2b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Croix */
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ==========================
+   MENU SLIDE GAUCHE CLASSIQUE
+========================== */
+@media (max-width: 992px) {
+
+    .burger {
+        display: flex;
+    }
+
+    .header {
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: 6px 0 25px rgba(0,0,0,0.15);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 25px;
+        gap: 20px;
+        transition: left 0.35s ease;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu a {
+        font-size: 18px;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    .btn-devis-header {
+        display: none;
+    }
+}
 
 /* =============================
 TABLETTE ≥ 768px
