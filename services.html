@@ -12,13 +12,21 @@
 <body>
 
 <header class="header">
+<!-- Bouton hamburger -->
+<div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="menu-overlay" id="menu-overlay"></div>
+<div class="menu-overlay" id="menu-overlay"></div>
    <a href="index.html" class="logo-container">
     <img src="images/logo.png" alt="Logo Icon" class="logo-icon">
     <div class="logo">Genius  <p class="logo-subtitle">Immobilier & BTP</p></div>
 </a>
 
 
-    <nav class="nav-menu">
+   <nav class="nav-menu" id="nav-menu">
         <div class="dropdown">
             <a href="services.html" class="dropbtn">Services </a>
             
@@ -209,6 +217,32 @@
     }, appearOptions);
 
     faders.forEach(fader => { appearOnScroll.observe(fader); });
+</script>
+<script>
+
+const burger = document.getElementById("burger");
+const navMenu = document.getElementById("nav-menu");
+const overlay = document.getElementById("menu-overlay");
+
+function toggleMenu() {
+    burger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    overlay.classList.toggle("active");
+}
+
+burger.addEventListener("click", toggleMenu);
+overlay.addEventListener("click", toggleMenu);
+
+/* Fermeture automatique au clic */
+document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        burger.classList.remove("active");
+        navMenu.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+});
+
+
 </script>
 
 </body>
