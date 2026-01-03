@@ -12,13 +12,20 @@
 <body>
 
 <header class="header">
+<!-- Bouton hamburger -->
+<div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="menu-overlay" id="menu-overlay"></div>
    <a href="index.html" class="logo-container">
     <img src="images/logo.png" alt="Logo Icon" class="logo-icon">
     <div class="logo">Genius  <p class="logo-subtitle">Immobilier & BTP</p></div>
 </a>
 
 
-    <nav class="nav-menu">
+    <nav class="nav-menu" id="nav-menu">
         <div class="dropdown">
             <a href="services.html" class="dropbtn">Services </a>
             
@@ -48,43 +55,52 @@
 
         <!-- GALERIE -->
        <section class="project-single-gallery">
+    
+
+    <!-- Galerie carrousel avec flèches -->
+<section class="project-single-gallery">
+
     <div class="main-img-container">
-        <img src="images/projet1.jpg" alt="Villa contemporaine" class="lightbox-trigger">
-        <span class="project-badge delivered">Projet livré</span>
+        <button class="img-nav prev">&#10094;</button>
+
+        <img id="mainImage" src="images/ch1/p1.jpeg" alt="Projet" />
+
+        <button class="img-nav next">&#10095;</button>
     </div>
 
-    <div class="gallery-thumbs-wrapper">
-        <div class="gallery-thumbs">
-            <img src="images/projet1.jpg" alt="Vue extérieure" class="lightbox-trigger">
-            <img src="images/projet1-2.jpg" alt="Piscine" class="lightbox-trigger">
-            <img src="images/projet1-3.jpg" alt="Intérieur moderne" class="lightbox-trigger">
-            <img src="images/projet1-4.jpg" alt="Façade nuit" class="lightbox-trigger">
-            <img src="images/projet1-5.jpg" alt="Salon design" class="lightbox-trigger">
-        </div>
+    <!-- Miniatures -->
+    <div class="gallery-thumbs">
+        <img src="images/ch1/p1.jpeg" class="thumb active">
+        <img src="images/ch1/p2.jpeg" class="thumb">
+        <img src="images/ch1/p3.jpeg" class="thumb">
+        <img src="images/ch1/p4.jpeg" class="thumb">
+        <img src="images/ch1/p5.jpeg" class="thumb">
     </div>
+
+</section>
+
+
 </section>
 
 
 
         <!-- INFOS PROJET -->
         <div class="project-single-info">
-            <span class="project-badge delivered">Projet livré</span>
+          
 
             <h2>Description du projet</h2>
             <p>
-                Ce projet consiste en la construction d’une villa contemporaine de très haut standing,
-                conçue pour offrir confort, luminosité et élégance. L’architecture privilégie
-                les lignes épurées, les volumes ouverts et l’utilisation de matériaux nobles.
-            </p>
+               Le projet consiste en la construction d’un bâtiment de rez-de-chaussée plus quatre étages (R+4), conçu pour accueillir des appartements modernes et éventuellement des commerces 
+			   au rez-de-chaussée. Le bâtiment respectera les normes locales de construction et de sécurité, avec des installations électriques et sanitaires conformes aux standards. L’aménagement 
+			   extérieur inclura un accès pour véhicules, des espaces verts et des parkings. </p>
 
             <p>
-                La villa bénéficie d’une intégration paysagère soignée, d’une piscine à débordement
-                et de larges baies vitrées permettant une connexion permanente entre intérieur et extérieur.
+                Objectif : Offrir des logements fonctionnels et sécurisés tout en valorisant l’espace urbain de Dakar.
             </p>
 
             <h3>Détails du projet</h3>
             <ul class="project-details">
-                <li><i class="fa-solid fa-location-dot"></i> Localisation : Nice, France</li>
+                <li><i class="fa-solid fa-location-dot"></i> Localisation : OUAKAM, Cité Avion</li>
                 <li><i class="fa-solid fa-ruler-combined"></i> Surface : 320 m²</li>
                 <li><i class="fa-solid fa-calendar-check"></i> Livraison : 2025</li>
                 <li><i class="fa-solid fa-building"></i> Type : Construction neuve</li>
@@ -213,6 +229,71 @@
     <i class="fab fa-whatsapp"></i>
     <span class="whatsapp-text"> Contactez-nous sur WhatsApp</span>
 </a>
+<script>
+
+const burger = document.getElementById("burger");
+const navMenu = document.getElementById("nav-menu");
+const overlay = document.getElementById("menu-overlay");
+
+function toggleMenu() {
+    burger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    overlay.classList.toggle("active");
+}
+
+burger.addEventListener("click", toggleMenu);
+overlay.addEventListener("click", toggleMenu);
+
+/* Fermeture automatique au clic */
+document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        burger.classList.remove("active");
+        navMenu.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+});
+
+</script>
+<script>
+const images = [
+    "images/ch1/p1.jpeg",
+    "images/ch1/p2.jpeg",
+    "images/ch1/p3.jpeg",
+    "images/ch1/p4.jpeg",
+    "images/ch1/p5.jpeg"
+];
+
+let currentIndex = 0;
+
+const mainImage = document.getElementById("mainImage");
+const prevBtn = document.querySelector(".img-nav.prev");
+const nextBtn = document.querySelector(".img-nav.next");
+const thumbs = document.querySelectorAll(".gallery-thumbs img");
+
+function updateImage(index) {
+    mainImage.src = images[index];
+
+    thumbs.forEach(t => t.classList.remove("active"));
+    thumbs[index].classList.add("active");
+}
+
+prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage(currentIndex);
+});
+
+nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage(currentIndex);
+});
+
+thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+        currentIndex = index;
+        updateImage(currentIndex);
+    });
+});
+</script>
 
 <script src="script.js"></script>
 </body>
