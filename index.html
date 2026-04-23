@@ -105,7 +105,7 @@ nav a:hover::after { width:100%; }
 .hero-text {
   position: relative;
   z-index: 2;
-  padding: 90px 0 50px;
+  padding: 110px 0 20px;
 }
 
 .hero-eyebrow {
@@ -151,9 +151,10 @@ nav a:hover::after { width:100%; }
   color: var(--gold);
   font-style: italic;
   display: block;
+   font-size: 38px;
 }
 .hero-h1 strong {
-  color: rgba(240,236,228,0.35);
+  color: var(--blue-mid);
   font-weight: 300;
   font-family: var(--sans);
   font-size: 0.32em;
@@ -161,7 +162,11 @@ nav a:hover::after { width:100%; }
   display: block;
   margin-top: 18px;
   text-transform: uppercase;
+  font-style: italic;
+  
 }
+.hero-h2 {color:var(--gold); font-size: 20px;font-style:italic;}
+.hero-h2 em { color:var(--blue-mid); font-size: 20px;font-style:italic; }
 
 /* Thin gold separator */
 .hero-rule {
@@ -175,6 +180,7 @@ nav a:hover::after { width:100%; }
 
 .hero-desc {
   font-size: 15px;
+  font-style:italic; 
   line-height: 1.95;
   color: rgba(240,236,228,0.55);
   max-width: 430px;
@@ -389,11 +395,40 @@ nav a:hover::after { width:100%; }
 .svc-panel[data-cols="5"].active { grid-template-columns:repeat(5,1fr); }
 .svc-panel[data-cols="6"].active { grid-template-columns:repeat(6,1fr); }
 .svc-panel[data-cols="2"].active { grid-template-columns:repeat(2,1fr); }
-.svc-item { background:var(--white);padding:22px 20px;display:flex;flex-direction:column;gap:7px;transition:background 0.2s; }
-.svc-item:hover { background:var(--off-white); }
-.svc-item i { font-size:15px;color:var(--blue-dark); }
-.svc-item h4 { font-family:var(--serif);font-size:14.5px;font-weight:400;color:var(--text);line-height:1.2; }
-.svc-item p { font-size:11px;line-height:1.65;color:var(--text-3); }
+.svc-item {
+    background: var(--white);
+    padding: 42px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.2s;
+}
+
+/* Icône centrée */
+.svc-item i {
+    font-size: 18px;
+    color: var(--blue-dark);
+    text-align: center;
+}
+
+/* Titre centré */
+.svc-item h4 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Texte prend toute la largeur */
+.svc-item p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-3);
+    text-align: left;
+    width: 100%;
+}
 
 /* PROJETS */
 .projets { padding:40px 20px;background:var(--light); }
@@ -493,7 +528,7 @@ nav a:hover::after { width:100%; }
 .apropos-inner { display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center; }
 .apropos-img-wrap { position:relative; }
 .apropos-img { width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;display:block;filter:contrast(1.05); }
-.img-frame { position:absolute;top:-16px;left:-16px;right:16px;bottom:16px;border:2px solid rgba(79,195,247,0.3);border-radius:14px;pointer-events:none; }
+.img-frame { position:absolute;top:-16px;left:-16px;right:16px;bottom:16px;border-radius:14px;pointer-events:none; }
 .img-badge { position:absolute;bottom:-20px;right:-20px;background:var(--gold);color:var(--white);border-radius:12px;padding:18px 22px;box-shadow:0 10px 30px rgba(201,162,77,0.4); }
 .img-badge .big { font-family:var(--serif);font-size:32px;font-weight:600;line-height:1; }
 .img-badge .small { font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;opacity:0.85; }
@@ -596,7 +631,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
   .stats { grid-template-columns:1fr 1fr; }
   .stat { padding:32px 16px; }
   .stat-num { font-size:38px; }
-  .hero-h1 { font-size:46px; }
+  .hero-h1 { font-size:36px; }
   .footer-grid { grid-template-columns:1fr; }
   .form-row { grid-template-columns:1fr; }
   .fgroup { border-right:none !important; }
@@ -640,7 +675,8 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 <section class="hero" id="hero">
   <div class="hero-text">
     <div class="hero-eyebrow">Dakar, Sénégal</div>
-    <h1 class="hero-h1">Genius<em>Immobilier</em><strong>&amp; BTP</strong></h1>
+    <h1 class="hero-h1">Genius</h1>
+	<h1 class="hero-h2">Immobilier<em> &amp; BTP</em></h1>
     <div class="hero-rule"></div>
     <p class="hero-desc">Construction neuve, rénovation haut de gamme, immobilier et conseil. Nous transformons vos ambitions en réalisations d'exception, avec rigueur et élégance.</p>
     <div class="hero-pills">
