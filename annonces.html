@@ -1053,6 +1053,23 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 }
 
 
+
+/* Cartes vidéo des annonces 3 et 4 */
+.annonce-video-cover{position:relative;width:100%;height:215px;overflow:hidden;background:radial-gradient(circle at 78% 22%,rgba(229,154,72,.24),transparent 28%),radial-gradient(circle at 18% 80%,rgba(37,72,103,.55),transparent 38%),linear-gradient(135deg,#081421 0%,#12283a 48%,#0b1724 100%);display:flex;align-items:center;justify-content:center;color:#fff}
+.annonce-video-glow{position:absolute;inset:-30%;background:linear-gradient(120deg,transparent 35%,rgba(232,201,122,.12) 50%,transparent 65%);transform:rotate(-12deg)}
+.annonce-video-content{position:relative;z-index:1;text-align:center;padding:18px}
+.annonce-video-kicker{display:inline-flex;align-items:center;gap:7px;font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:#e8c97a;margin-bottom:12px}
+.annonce-video-content strong{display:block;font-family:var(--serif);font-size:27px;font-weight:500}
+.annonce-video-content>span:not(.annonce-video-kicker){display:block;margin-top:4px;font-size:11px;color:rgba(255,255,255,.72);letter-spacing:.7px}
+.annonce-video-play{width:48px;height:48px;border-radius:50%;margin:15px auto 8px;display:flex;align-items:center;justify-content:center;background:#e8c97a;color:#10202e;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.annonce-video-play i{margin-left:2px}
+.annonce-video-content small{font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.annonce-modal-gallery video#annonceMainVideo{width:100%;height:100%;min-height:580px;max-height:72vh;object-fit:contain;display:block;background:#07111b}
+.annonce-video-thumb{width:66px;height:48px;flex:0 0 auto;cursor:pointer;border:2px solid transparent;opacity:.75;background:linear-gradient(135deg,#0b1724,#1c3b55);display:flex;align-items:center;justify-content:center;color:#e8c97a}
+.annonce-video-thumb.active{border-color:#e8c97a;opacity:1}
+@media(max-width:900px){.annonce-modal-gallery video#annonceMainVideo{min-height:380px;max-height:50vh}}
+@media(max-width:600px){.annonce-video-cover{height:230px}.annonce-modal-gallery video#annonceMainVideo{min-height:290px}}
+
 /* AJUSTEMENT FINAL — badges compacts sur une ligne */
 .home-hero { min-height: 68vh !important; }
 .home-hero-content {
@@ -1404,6 +1421,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
   .annonce-modal-info { padding: 28px; }
 }
 
+</style>
 <style id="annonces-ajustements">
 /* ===== AJUSTEMENTS ANNONCES ===== */
 .annonces-page-hero {
@@ -1454,6 +1472,73 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 .annonce-reference{display:inline-block!important;margin-top:7px!important;color:#a8842c!important;font:600 9px var(--sans)!important;letter-spacing:1.2px!important;text-transform:uppercase!important;}
 .annonce-modal-ref{color:#0B7FB5!important;font-weight:700!important;}
 </style>
+
+
+<style id="annonces-gallery-css">
+/* Galerie des annonces 1 et 2 */
+.annonce-modal-gallery {
+  min-height: 580px;
+  background: #111;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#annonceMainImg {
+  width: 100%;
+  height: 100%;
+  min-height: 580px;
+  max-height: 72vh;
+  object-fit: cover;
+  display: block;
+}
+.annonce-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,.52);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 4;
+}
+.annonce-nav.prev { left: 16px; }
+.annonce-nav.next { right: 16px; }
+.annonce-thumbs {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  z-index: 4;
+}
+.annonce-thumb {
+  width: 66px;
+  height: 48px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: .72;
+}
+.annonce-thumb.active { border-color: #e8c97a; opacity: 1; }
+.annonce-modal-close {
+  z-index: 10 !important;
+}
+@media (max-width:700px) {
+  .annonce-modal-gallery { min-height: 330px; }
+  #annonceMainImg { min-height: 330px; max-height: 55vh; }
+}
+
+</style>
+
 </head>
 <body>
 
@@ -1501,51 +1586,51 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
     </div>
     <div class="annonces-full-grid">
       
-    <article class="annonce-full-card" data-id="0">
+        <article class="annonce-full-card" data-id="0">
       <div class="annonce-full-image">
-        <img src="images/p1.jpeg" alt="2 pièces · 40 m² · Non meublé à 21800 Quetigny">
+        <img src="images/annonce_16.jpeg" alt="F3 · 2 chambres + salon à Almadies 2">
         <span class="annonce-full-badge">À la une</span>
       </div>
       <div class="annonce-full-body">
-        <div class="annonce-full-meta">2 pièces · 40 m² · Non meublé<br>21800 Quetigny</div><div class="annonce-reference">Réf. ANN-001</div>
-        <div class="annonce-full-price">150 000 F CFA / mois</div>
-        <div class="annonce-full-desc">Appartement lumineux, confortable et idéalement situé.</div>
+        <div class="annonce-full-meta">F3 · 2 chambres + salon<br>Almadies 2</div>
+        <div class="annonce-reference">Réf. ANN-001</div>
+        <div class="annonce-full-price">200 000 F CFA</div>
+        <div class="annonce-full-desc">Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage</div>
         <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </article>
-    <article class="annonce-full-card" data-id="1">
+        <article class="annonce-full-card" data-id="1">
       <div class="annonce-full-image">
-        <img src="images/p2.jpeg" alt="2 pièces · 39 m² · Meublé à 31490 Léguevin">
+        <img src="images/annonce_17.jpeg" alt="F2 · 1 chambre + salon à Almadies 2">
         <span class="annonce-full-badge">À la une</span>
       </div>
       <div class="annonce-full-body">
-        <div class="annonce-full-meta">2 pièces · 39 m² · Meublé<br>31490 Léguevin</div><div class="annonce-reference">Réf. ANN-002</div>
-        <div class="annonce-full-price">175 000 F CFA / mois</div>
-        <div class="annonce-full-desc">Appartement meublé, chaleureux et prêt à vivre.</div>
+        <div class="annonce-full-meta">F2 · 1 chambre + salon<br>Almadies 2</div>
+        <div class="annonce-reference">Réf. ANN-002</div>
+        <div class="annonce-full-price">175 000 F CFA</div>
+        <div class="annonce-full-desc">Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage</div>
         <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </article>
-    <article class="annonce-full-card" data-id="2">
+        <article class="annonce-full-card" data-id="2">
       <div class="annonce-full-image">
-        <img src="images/p3.jpeg" alt="4 pièces · 91 m² · Meublé à 92320 Châtillon">
-        <span class="annonce-full-badge">À la une</span>
-      </div>
+<div class="annonce-video-cover"><div class="annonce-video-glow"></div><div class="annonce-video-content"><span class="annonce-video-kicker"><i class="fa-solid fa-play"></i> Visite vidéo</span><strong>Ouest Foire</strong><span>F3 · 2 chambres + salon</span><div class="annonce-video-play"><i class="fa-solid fa-play"></i></div><small>Découvrez le bien en vidéo</small></div></div><span class="annonce-full-badge">À la une</span></div>
       <div class="annonce-full-body">
-        <div class="annonce-full-meta">4 pièces · 91 m² · Meublé<br>92320 Châtillon</div><div class="annonce-reference">Réf. ANN-003</div>
-        <div class="annonce-full-price">225 000 F CFA / mois</div>
-        <div class="annonce-full-desc">Bel appartement familial avec de beaux volumes et une agréable luminosité.</div>
+        <div class="annonce-full-meta">F3 · 2 chambres + salon<br>Ouest Foire</div>
+        <div class="annonce-reference">Réf. ANN-003</div>
+        <div class="annonce-full-price">300 000 F CFA</div>
+        <div class="annonce-full-desc">Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage</div>
         <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </article>
-    <article class="annonce-full-card" data-id="3">
+        <article class="annonce-full-card" data-id="3">
       <div class="annonce-full-image">
-        <img src="images/p4.jpeg" alt="4 pièces · 65,34 m² · Meublé à 33000 Bordeaux">
-        <span class="annonce-full-badge">À la une</span>
-      </div>
+<div class="annonce-video-cover"><div class="annonce-video-glow"></div><div class="annonce-video-content"><span class="annonce-video-kicker"><i class="fa-solid fa-play"></i> Visite vidéo</span><strong>Ouest Foire</strong><span>F2 · 1 chambre + salon</span><div class="annonce-video-play"><i class="fa-solid fa-play"></i></div><small>Découvrez le bien en vidéo</small></div></div><span class="annonce-full-badge">À la une</span></div>
       <div class="annonce-full-body">
-        <div class="annonce-full-meta">4 pièces · 65,34 m² · Meublé<br>33000 Bordeaux</div><div class="annonce-reference">Réf. ANN-004</div>
-        <div class="annonce-full-price">300 000 F CFA / mois</div>
-        <div class="annonce-full-desc">Appartement élégant et fonctionnel au cœur de Bordeaux.</div>
+        <div class="annonce-full-meta">F2 · 1 chambre + salon<br>Ouest Foire</div>
+        <div class="annonce-reference">Réf. ANN-004</div>
+        <div class="annonce-full-price">250 000 F CFA</div>
+        <div class="annonce-full-desc">Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage</div>
         <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </article>
@@ -1619,7 +1704,12 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 <div class="annonce-modal" id="annonceModal" aria-hidden="true">
   <div class="annonce-modal-box">
     <button class="annonce-modal-close annonce-close" type="button" aria-label="Fermer le détail" title="Fermer" onclick="closeAnnoncePage(event)">×</button>
-    <img class="annonce-modal-photo" id="annonceModalPhoto" src="" alt="">
+    <div class="annonce-modal-gallery">
+      <img id="annonceMainImg" src="" alt="">
+      <button class="annonce-nav prev" type="button" onclick="annoncePageNav(-1)" aria-label="Photo précédente">&#10094;</button>
+      <button class="annonce-nav next" type="button" onclick="annoncePageNav(1)" aria-label="Photo suivante">&#10095;</button>
+      <div class="annonce-thumbs" id="annonceThumbs"></div>
+    </div>
     <div class="annonce-modal-info">
       <div class="annonce-modal-label" id="annonceModalRef"></div>
       <h3 id="annonceModalTitle"></h3>
@@ -1632,7 +1722,17 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 </div>
 
 <script>
-const annonces = [{"meta": "2 pièces · 40 m² · Non meublé", "city": "21800 Quetigny", "price": "150 000 F CFA / mois", "desc": "Appartement lumineux, confortable et idéalement situé.", "img": "images/p1.jpeg", "ref": "ANN-001"}, {"meta": "2 pièces · 39 m² · Meublé", "city": "31490 Léguevin", "price": "175 000 F CFA / mois", "desc": "Appartement meublé, chaleureux et prêt à vivre.", "img": "images/p2.jpeg", "ref": "ANN-002"}, {"meta": "4 pièces · 91 m² · Meublé", "city": "92320 Châtillon", "price": "225 000 F CFA / mois", "desc": "Bel appartement familial avec de beaux volumes et une agréable luminosité.", "img": "images/p3.jpeg", "ref": "ANN-003"}, {"meta": "4 pièces · 65,34 m² · Meublé", "city": "33000 Bordeaux", "price": "300 000 F CFA / mois", "desc": "Appartement élégant et fonctionnel au cœur de Bordeaux.", "img": "images/p4.jpeg", "ref": "ANN-004"}, {"meta": "Bien immobilier à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Découvrez ce nouveau bien et demandez sa fiche complète à notre équipe.", "img": "images/p5.jpeg", "ref": "ANN-005"}, {"meta": "Appartement à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Nouveau bien de notre sélection. Contactez-nous pour connaître les caractéristiques et la disponibilité.", "img": "images/p6.jpeg", "ref": "ANN-006"}, {"meta": "Villa à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Une nouvelle opportunité immobilière à découvrir auprès de Genius.", "img": "images/p7.png", "ref": "ANN-007"}, {"meta": "Bien immobilier à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Demandez les informations détaillées et la disponibilité de ce bien auprès de Genius.", "img": "images/p8.jpeg", "ref": "ANN-008"}];
+const annonces = [
+  {"meta":"F3 · 2 chambres + salon","city":"Almadies 2","price":"200 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"images/annonce_16.jpeg","media":["images/annonce_16.jpeg","images/annonce_01.jpeg","images/annonce_02.jpeg","images/annonce_03.jpeg","images/annonce_04.jpeg","images/annonce_05.jpeg","images/annonce_06.jpeg","images/annonce_07.jpeg","images/annonce_08.jpeg","images/annonce_09.jpeg"],"ref":"ANN-001"},
+  {"meta":"F2 · 1 chambre + salon","city":"Almadies 2","price":"175 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"images/annonce_16.jpeg","media":["images/annonce_16.jpeg","images/annonce_10.jpeg","images/annonce_11.jpeg","images/annonce_12.jpeg","images/annonce_13.jpeg","images/annonce_14.jpeg","images/annonce_15.jpeg","images/annonce_17.jpeg","images/annonce_18.jpeg"],"ref":"ANN-002"},
+  {"meta":"F3 · 2 chambres + salon","city":"Ouest Foire","price":"300 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"videos/annonce_03_video.mp4","media":["videos/annonce_03_video.mp4"],"ref":"ANN-003"},
+  {"meta":"F2 · 1 chambre + salon","city":"Ouest Foire","price":"250 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"videos/annonce_04_video.mp4","media":["videos/annonce_04_video.mp4"],"ref":"ANN-004"},
+  {"meta":"Bien immobilier à découvrir","city":"Dakar","price":"Nous consulter","desc":"Découvrez ce nouveau bien et demandez sa fiche complète à notre équipe.","img":"images/p5.jpeg","media":["images/p5.jpeg"],"ref":"ANN-005"},
+  {"meta":"Appartement à découvrir","city":"Dakar","price":"Nous consulter","desc":"Nouveau bien de notre sélection. Contactez-nous pour connaître les caractéristiques et la disponibilité.","img":"images/p6.jpeg","media":["images/p6.jpeg"],"ref":"ANN-006"},
+  {"meta":"Villa à découvrir","city":"Dakar","price":"Nous consulter","desc":"Une nouvelle opportunité immobilière à découvrir auprès de Genius.","img":"images/p7.png","media":["images/p7.png"],"ref":"ANN-007"},
+  {"meta":"Bien immobilier à découvrir","city":"Dakar","price":"Nous consulter","desc":"Demandez les informations détaillées et la disponibilité de ce bien auprès de Genius.","img":"images/p8.jpeg","media":["images/p8.jpeg"],"ref":"ANN-008"}
+];
+let annoncePageIndex=0, annoncePageMediaIndex=0;
 const modal = document.getElementById('annonceModal');
 const photo = document.getElementById('annonceModalPhoto');
 const title = document.getElementById('annonceModalTitle');
@@ -1642,29 +1742,75 @@ const meta = document.getElementById('annonceModalMeta');
 const refEl = document.getElementById('annonceModalRef');
 
 function openAnnoncePage(i) {
+  annoncePageIndex = i;
+  annoncePageMediaIndex = 0;
   const a = annonces[i];
-  refEl.textContent = 'Référence ' + a.ref;
-  photo.src = a.img;
-  photo.alt = a.meta + ' — ' + a.city;
-  title.textContent = a.meta + ' — ' + a.city;
-  price.textContent = a.price;
-  desc.textContent = a.desc;
-  meta.textContent = a.meta + ' · ' + a.city;
+  document.getElementById('annonceModalRef').textContent = 'Référence ' + a.ref;
+  document.getElementById('annonceModalTitle').textContent = a.meta + ' — ' + a.city;
+  document.getElementById('annonceModalPrice').textContent = a.price;
+  document.getElementById('annonceModalDesc').textContent = a.desc;
+  document.getElementById('annonceModalMeta').textContent = a.meta + ' · ' + a.city;
+  renderAnnoncePageMedia();
   modal.classList.add('open');
   modal.setAttribute('aria-hidden','false');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
+}
+function renderAnnoncePageMedia() {
+  const a = annonces[annoncePageIndex];
+  const src = a.media[annoncePageMediaIndex];
+  const gallery = document.querySelector('.annonce-modal-gallery');
+  const oldImg = document.getElementById('annonceMainImg');
+  const oldVideo = document.getElementById('annonceMainVideo');
+  if (oldImg) oldImg.style.display = 'none';
+  if (oldVideo) oldVideo.remove();
+
+  if (/\.(mp4|webm|ogg)$/i.test(src)) {
+    const video = document.createElement('video');
+    video.id = 'annonceMainVideo';
+    video.src = src;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.setAttribute('aria-label', a.meta + ' — ' + a.city);
+    gallery.insertBefore(video, gallery.querySelector('.annonce-nav'));
+  } else {
+    const img = oldImg || document.createElement('img');
+    img.id = 'annonceMainImg';
+    img.src = src;
+    img.alt = a.meta + ' — ' + a.city;
+    img.style.display = 'block';
+    if (!oldImg) gallery.insertBefore(img, gallery.querySelector('.annonce-nav'));
+  }
+
+  document.getElementById('annonceThumbs').innerHTML = a.media.map((src,i) => {
+    const active = i===annoncePageMediaIndex ? 'active' : '';
+    if (/\.(mp4|webm|ogg)$/i.test(src)) {
+      return '<button type="button" class="annonce-video-thumb '+active+'" onclick="setAnnoncePageMedia('+i+')" aria-label="Vidéo '+(i+1)+'"><i class="fa-solid fa-play"></i></button>';
+    }
+    return '<img class="annonce-thumb '+active+'" src="'+src+'" onclick="setAnnoncePageMedia('+i+')" alt="Photo '+(i+1)+'">';
+  }).join('');
+}
+function setAnnoncePageMedia(i) {
+  annoncePageMediaIndex=i;
+  renderAnnoncePageMedia();
+}
+function annoncePageNav(dir) {
+  const len=annonces[annoncePageIndex].media.length;
+  if (len <= 1) return;
+  annoncePageMediaIndex=(annoncePageMediaIndex+dir+len)%len;
+  renderAnnoncePageMedia();
 }
 function closeAnnoncePage(event) {
   if (event) event.stopPropagation();
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden','true');
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
 document.querySelectorAll('.annonce-full-card').forEach((card,i) => {
   card.addEventListener('click', () => openAnnoncePage(i));
 });
 const closeBtn = document.querySelector('.annonce-modal-close.annonce-close');
-if (closeBtn) closeBtn.addEventListener('click', (event) => closeAnnoncePage(event));
+if (closeBtn) closeBtn.addEventListener('click', closeAnnoncePage);
 modal.addEventListener('click', e => { if (e.target === modal) closeAnnoncePage(e); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAnnoncePage(e); });
 

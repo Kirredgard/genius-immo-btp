@@ -1053,6 +1053,23 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 }
 
 
+
+/* Cartes vidéo des annonces 3 et 4 */
+.annonce-video-cover{position:relative;width:100%;height:215px;overflow:hidden;background:radial-gradient(circle at 78% 22%,rgba(229,154,72,.24),transparent 28%),radial-gradient(circle at 18% 80%,rgba(37,72,103,.55),transparent 38%),linear-gradient(135deg,#081421 0%,#12283a 48%,#0b1724 100%);display:flex;align-items:center;justify-content:center;color:#fff}
+.annonce-video-glow{position:absolute;inset:-30%;background:linear-gradient(120deg,transparent 35%,rgba(232,201,122,.12) 50%,transparent 65%);transform:rotate(-12deg)}
+.annonce-video-content{position:relative;z-index:1;text-align:center;padding:18px}
+.annonce-video-kicker{display:inline-flex;align-items:center;gap:7px;font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:#e8c97a;margin-bottom:12px}
+.annonce-video-content strong{display:block;font-family:var(--serif);font-size:27px;font-weight:500}
+.annonce-video-content>span:not(.annonce-video-kicker){display:block;margin-top:4px;font-size:11px;color:rgba(255,255,255,.72);letter-spacing:.7px}
+.annonce-video-play{width:48px;height:48px;border-radius:50%;margin:15px auto 8px;display:flex;align-items:center;justify-content:center;background:#e8c97a;color:#10202e;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.annonce-video-play i{margin-left:2px}
+.annonce-video-content small{font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.annonce-modal-gallery video#annonceMainVideo{width:100%;height:100%;min-height:580px;max-height:72vh;object-fit:contain;display:block;background:#07111b}
+.annonce-video-thumb{width:66px;height:48px;flex:0 0 auto;cursor:pointer;border:2px solid transparent;opacity:.75;background:linear-gradient(135deg,#0b1724,#1c3b55);display:flex;align-items:center;justify-content:center;color:#e8c97a}
+.annonce-video-thumb.active{border-color:#e8c97a;opacity:1}
+@media(max-width:900px){.annonce-modal-gallery video#annonceMainVideo{min-height:380px;max-height:50vh}}
+@media(max-width:600px){.annonce-video-cover{height:230px}.annonce-modal-gallery video#annonceMainVideo{min-height:290px}}
+
 /* AJUSTEMENT FINAL — badges compacts sur une ligne */
 .home-hero { min-height: 68vh !important; }
 .home-hero-content {
@@ -1214,21 +1231,21 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
       </div>
     </div>
     <div class="annonces-grid">
-      <article class="annonce-card" onclick="openAnnonce(0)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p1.jpeg" alt="Appartement 2 pièces à Quetigny"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">2 pièces · 40m² · Non meublé<br>21800 Quetigny</div><div class="annonce-price">613€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+            <article class="annonce-card" onclick="openAnnonce(0)" tabindex="0" role="button">
+        <div class="annonce-image"><img src="images/annonce_16.jpeg" alt="F3 · 2 chambres + salon à Almadies 2"><span class="annonce-badge">À la une</span></div>
+        <div class="annonce-body"><div class="annonce-meta">F3 · 2 chambres + salon<br>Almadies 2</div><div class="annonce-price">200 000 F CFA</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
       </article>
-      <article class="annonce-card" onclick="openAnnonce(1)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p2.jpeg" alt="Appartement 2 pièces à Léguevin"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">2 pièces · 39m² · Meublé<br>31490 Léguevin</div><div class="annonce-price">620€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+            <article class="annonce-card" onclick="openAnnonce(1)" tabindex="0" role="button">
+        <div class="annonce-image"><img src="images/annonce_17.jpeg" alt="F2 · 1 chambre + salon à Almadies 2"><span class="annonce-badge">À la une</span></div>
+        <div class="annonce-body"><div class="annonce-meta">F2 · 1 chambre + salon<br>Almadies 2</div><div class="annonce-price">175 000 F CFA</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
       </article>
-      <article class="annonce-card" onclick="openAnnonce(2)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p3.jpeg" alt="Appartement 4 pièces à Châtillon"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">4 pièces · 91m² · Meublé<br>92320 Châtillon</div><div class="annonce-price">2 658€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+            <article class="annonce-card" onclick="openAnnonce(2)" tabindex="0" role="button">
+        <div class="annonce-image"><div class="annonce-video-cover"><div class="annonce-video-glow"></div><div class="annonce-video-content"><span class="annonce-video-kicker"><i class="fa-solid fa-play"></i> Visite vidéo</span><strong>Ouest Foire</strong><span>F3 · 2 chambres + salon</span><div class="annonce-video-play"><i class="fa-solid fa-play"></i></div><small>Découvrez le bien en vidéo</small></div></div></div>
+        <div class="annonce-body"><div class="annonce-meta">F3 · 2 chambres + salon<br>Ouest Foire</div><div class="annonce-price">300 000 F CFA</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
       </article>
-      <article class="annonce-card" onclick="openAnnonce(3)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p4.jpeg" alt="Appartement 4 pièces à Bordeaux"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">4 pièces · 65,34m² · Meublé<br>33000 Bordeaux</div><div class="annonce-price">1 760€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+            <article class="annonce-card" onclick="openAnnonce(3)" tabindex="0" role="button">
+        <div class="annonce-image"><div class="annonce-video-cover"><div class="annonce-video-glow"></div><div class="annonce-video-content"><span class="annonce-video-kicker"><i class="fa-solid fa-play"></i> Visite vidéo</span><strong>Ouest Foire</strong><span>F2 · 1 chambre + salon</span><div class="annonce-video-play"><i class="fa-solid fa-play"></i></div><small>Découvrez le bien en vidéo</small></div></div></div>
+        <div class="annonce-body"><div class="annonce-meta">F2 · 1 chambre + salon<br>Ouest Foire</div><div class="annonce-price">250 000 F CFA</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
       </article>
     </div>
   </div>
@@ -1530,36 +1547,36 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 // ===== ANNONCES =====
 const annonces = [
   {
-    label:'Appartement · 2 pièces · 40m²',
-    title:'Appartement 2 pièces à Quetigny',
-    price:'613€ cc',
-    desc:'Appartement de 40 m², non meublé, situé à 21800 Quetigny. Un bien fonctionnel et agréable, idéal pour une première installation ou un investissement locatif.',
-    details:[['Type','2 pièces'],['Surface','40 m²'],['Meublé','Non meublé'],['Localisation','21800 Quetigny']],
-    media:['images/p1.jpeg']
+    label:'F3 · 2 chambres + salon · Almadies 2',
+    title:'F3 — Almadies 2',
+    price:'200 000 F CFA',
+    desc:'Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage',
+    details:[['Type','F3'],['Configuration','2 chambres + salon'],['Localisation','Almadies 2']],
+    media:['images/annonce_16.jpeg','images/annonce_01.jpeg','images/annonce_02.jpeg','images/annonce_03.jpeg','images/annonce_04.jpeg','images/annonce_05.jpeg','images/annonce_06.jpeg','images/annonce_07.jpeg','images/annonce_08.jpeg','images/annonce_09.jpeg']
   },
   {
-    label:'Appartement · 2 pièces · 39m²',
-    title:'Appartement 2 pièces à Léguevin',
-    price:'620€ cc',
-    desc:'Appartement meublé de 39 m² situé à 31490 Léguevin. Un logement pratique et confortable, prêt à accueillir ses futurs occupants.',
-    details:[['Type','2 pièces'],['Surface','39 m²'],['Meublé','Meublé'],['Localisation','31490 Léguevin']],
-    media:['images/p2.jpeg']
+    label:'F2 · 1 chambre + salon · Almadies 2',
+    title:'F2 — Almadies 2',
+    price:'175 000 F CFA',
+    desc:'Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage',
+    details:[['Type','F2'],['Configuration','1 chambre + salon'],['Localisation','Almadies 2']],
+    media:['images/annonce_17.jpeg','images/annonce_10.jpeg','images/annonce_11.jpeg','images/annonce_12.jpeg','images/annonce_13.jpeg','images/annonce_14.jpeg','images/annonce_15.jpeg','images/annonce_18.jpeg']
   },
   {
-    label:'Appartement · 4 pièces · 91m²',
-    title:'Appartement 4 pièces à Châtillon',
-    price:'2 658€ cc',
-    desc:'Spacieux appartement meublé de 91 m² à 92320 Châtillon. Une belle surface pour un cadre de vie confortable et familial.',
-    details:[['Type','4 pièces'],['Surface','91 m²'],['Meublé','Meublé'],['Localisation','92320 Châtillon']],
-    media:['images/p3.jpeg']
+    label:'F3 · 2 chambres + salon · Ouest Foire',
+    title:'F3 — Ouest Foire',
+    price:'300 000 F CFA',
+    desc:'Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage',
+    details:[['Type','F3'],['Configuration','2 chambres + salon'],['Localisation','Ouest Foire']],
+    media:['videos/annonce_03_video.mp4']
   },
   {
-    label:'Appartement · 4 pièces · 65,34m²',
-    title:'Appartement 4 pièces à Bordeaux',
-    price:'1 760€ cc',
-    desc:'Appartement meublé de 65,34 m² situé à 33000 Bordeaux. Un bien pensé pour conjuguer confort, fonctionnalité et emplacement.',
-    details:[['Type','4 pièces'],['Surface','65,34 m²'],['Meublé','Meublé'],['Localisation','33000 Bordeaux']],
-    media:['images/p4.jpeg']
+    label:'F2 · 1 chambre + salon · Ouest Foire',
+    title:'F2 — Ouest Foire',
+    price:'250 000 F CFA',
+    desc:'Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage',
+    details:[['Type','F2'],['Configuration','1 chambre + salon'],['Localisation','Ouest Foire']],
+    media:['videos/annonce_04_video.mp4']
   }
 ];
 let annonceIndex=0, annonceMediaIndex=0;
@@ -1575,10 +1592,26 @@ function openAnnonce(i){
   modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
 }
 function renderAnnonceMedia(){
-  const a=annonces[annonceIndex];
-  document.getElementById('annonceMainImg').src=a.media[annonceMediaIndex];
-  document.getElementById('annonceMainImg').alt=a.title;
-  document.getElementById('annonceThumbs').innerHTML=a.media.map((src,i)=>`<img class="annonce-thumb ${i===annonceMediaIndex?'active':''}" src="${src}" onclick="setAnnonceMedia(${i})" alt="">`).join('');
+  const a=annonces[annonceIndex], src=a.media[annonceMediaIndex];
+  const gallery=document.querySelector('#annonceModal .annonce-modal-gallery');
+  const oldImg=document.getElementById('annonceMainImg');
+  const oldVideo=document.getElementById('annonceMainVideo');
+  if(oldImg) oldImg.style.display='none';
+  if(oldVideo) oldVideo.remove();
+  if(/\.(mp4|webm|ogg)$/i.test(src)){
+    const video=document.createElement('video');
+    video.id='annonceMainVideo'; video.src=src; video.controls=true; video.playsInline=true; video.preload='metadata'; video.setAttribute('aria-label',a.title);
+    gallery.insertBefore(video,gallery.querySelector('.annonce-nav'));
+  }else{
+    const img=oldImg||document.createElement('img');
+    img.id='annonceMainImg'; img.src=src; img.alt=a.title; img.style.display='block';
+    if(!oldImg) gallery.insertBefore(img,gallery.querySelector('.annonce-nav'));
+  }
+  document.getElementById('annonceThumbs').innerHTML=a.media.map((src,i)=>{
+    const active=i===annonceMediaIndex?'active':'';
+    if(/\.(mp4|webm|ogg)$/i.test(src)) return `<button type="button" class="annonce-video-thumb ${active}" onclick="setAnnonceMedia(${i})" aria-label="Vidéo ${i+1}"><i class="fa-solid fa-play"></i></button>`;
+    return `<img class="annonce-thumb ${active}" src="${src}" onclick="setAnnonceMedia(${i})" alt="">`;
+  }).join('');
 }
 function setAnnonceMedia(i){annonceMediaIndex=i;renderAnnonceMedia();}
 function annonceNav(dir){
