@@ -1157,6 +1157,12 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 .partenaire-contact-row i{color:#b18a32}
 @media(max-width:900px){.partenaire-card{grid-template-columns:1fr}.partenaire-brand{padding:32px 24px}.partenaire-content{padding:34px 28px}.expertise-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.partenaire-section{padding:62px 5%}.partenaire-logo-box{width:200px;height:95px}.partenaire-content h3{font-size:26px}.expertise-grid{grid-template-columns:1fr}.partenaire-contact-row{flex-direction:column;gap:12px}}
+
+/* Galerie vidéo — compatibilité et affichage propre */
+.annonce-modal-gallery video#annonceMainVideo{position:relative;z-index:2;width:100%;height:100%;min-height:580px;max-height:72vh;object-fit:contain;display:block;background:#07111b}
+.annonce-video-error{position:absolute;left:50%;bottom:88px;transform:translateX(-50%);z-index:6;background:rgba(0,0,0,.78);color:#fff;padding:10px 16px;border-radius:4px;font-size:12px;text-align:center;max-width:80%}
+@media(max-width:900px){.annonce-modal-gallery video#annonceMainVideo{min-height:380px;max-height:50vh}}
+@media(max-width:600px){.annonce-modal-gallery video#annonceMainVideo{min-height:290px;max-height:55vh}.annonce-video-error{bottom:70px}}
 </style>
 </head>
 <body>
@@ -1568,7 +1574,7 @@ const annonces = [
     price:'300 000 F CFA',
     desc:'Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage',
     details:[['Type','F3'],['Configuration','2 chambres + salon'],['Localisation','Ouest Foire']],
-    media:['videos/annonce_03_video.mp4']
+    media:['videos/annonce_03_video.mp4','videos/annonce_04_video.mp4']
   },
   {
     label:'F2 · 1 chambre + salon · Ouest Foire',
@@ -1576,7 +1582,7 @@ const annonces = [
     price:'250 000 F CFA',
     desc:'Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage',
     details:[['Type','F2'],['Configuration','1 chambre + salon'],['Localisation','Ouest Foire']],
-    media:['videos/annonce_04_video.mp4']
+    media:['videos/annonce_03_video.mp4','videos/annonce_04_video.mp4']
   }
 ];
 let annonceIndex=0, annonceMediaIndex=0;
@@ -1600,7 +1606,7 @@ function renderAnnonceMedia(){
   if(oldVideo) oldVideo.remove();
   if(/\.(mp4|webm|ogg)$/i.test(src)){
     const video=document.createElement('video');
-    video.id='annonceMainVideo'; video.src=src; video.controls=true; video.playsInline=true; video.preload='metadata'; video.setAttribute('aria-label',a.title);
+    video.id='annonceMainVideo'; video.controls=true; video.playsInline=true; video.preload='metadata'; video.setAttribute('aria-label',a.title); video.setAttribute('type','video/mp4'); video.innerHTML='<source src="'+src+'" type="video/mp4">'; video.addEventListener('error',()=>{video.insertAdjacentHTML('afterend','<div class="annonce-video-error">Cette vidéo ne peut pas être lue. Rechargez la page ou essayez un autre navigateur.</div>');});
     gallery.insertBefore(video,gallery.querySelector('.annonce-nav'));
   }else{
     const img=oldImg||document.createElement('img');

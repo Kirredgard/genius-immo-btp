@@ -1159,6 +1159,12 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
   border-color: #c9a24d !important;
 }
 
+
+/* Galerie vidéo — compatibilité et affichage propre */
+.annonce-modal-gallery video#annonceMainVideo{position:relative;z-index:2;width:100%;height:100%;min-height:580px;max-height:72vh;object-fit:contain;display:block;background:#07111b}
+.annonce-video-error{position:absolute;left:50%;bottom:88px;transform:translateX(-50%);z-index:6;background:rgba(0,0,0,.78);color:#fff;padding:10px 16px;border-radius:4px;font-size:12px;text-align:center;max-width:80%}
+@media(max-width:900px){.annonce-modal-gallery video#annonceMainVideo{min-height:380px;max-height:50vh}}
+@media(max-width:600px){.annonce-modal-gallery video#annonceMainVideo{min-height:290px;max-height:55vh}.annonce-video-error{bottom:70px}}
 </style>
 
 <style id="annonces-page-css">
@@ -1635,7 +1641,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
       </div>
     </article>
       <article class="annonce-full-card" data-id="4">
-        <div class="annonce-full-image"><img src="images/p5.jpeg" alt="Bien immobilier à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-image"><img src="images/cover-annonces-5-8.png" alt="Bien immobilier à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
         <div class="annonce-full-body">
           <div class="annonce-full-meta">Bien immobilier à découvrir<br>Dakar</div>
           <div class="annonce-reference">Réf. ANN-005</div>
@@ -1645,7 +1651,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
         </div>
       </article>
       <article class="annonce-full-card" data-id="5">
-        <div class="annonce-full-image"><img src="images/p6.jpeg" alt="Appartement à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-image"><img src="images/cover-annonces-5-8.png" alt="Appartement à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
         <div class="annonce-full-body">
           <div class="annonce-full-meta">Appartement à découvrir<br>Dakar</div>
           <div class="annonce-reference">Réf. ANN-006</div>
@@ -1655,7 +1661,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
         </div>
       </article>
       <article class="annonce-full-card" data-id="6">
-        <div class="annonce-full-image"><img src="images/p7.png" alt="Villa à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-image"><img src="images/cover-annonces-5-8.png" alt="Villa à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
         <div class="annonce-full-body">
           <div class="annonce-full-meta">Villa à découvrir<br>Dakar</div>
           <div class="annonce-reference">Réf. ANN-007</div>
@@ -1665,7 +1671,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
         </div>
       </article>
       <article class="annonce-full-card" data-id="7">
-        <div class="annonce-full-image"><img src="images/p8.jpeg" alt="Bien immobilier à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-image"><img src="images/cover-annonces-5-8.png" alt="Bien immobilier à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
         <div class="annonce-full-body">
           <div class="annonce-full-meta">Bien immobilier à découvrir<br>Dakar</div>
           <div class="annonce-reference">Réf. ANN-008</div>
@@ -1725,12 +1731,12 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 const annonces = [
   {"meta":"F3 · 2 chambres + salon","city":"Almadies 2","price":"200 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"images/annonce_16.jpeg","media":["images/annonce_16.jpeg","images/annonce_01.jpeg","images/annonce_02.jpeg","images/annonce_03.jpeg","images/annonce_04.jpeg","images/annonce_05.jpeg","images/annonce_06.jpeg","images/annonce_07.jpeg","images/annonce_08.jpeg","images/annonce_09.jpeg"],"ref":"ANN-001"},
   {"meta":"F2 · 1 chambre + salon","city":"Almadies 2","price":"175 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"images/annonce_16.jpeg","media":["images/annonce_16.jpeg","images/annonce_10.jpeg","images/annonce_11.jpeg","images/annonce_12.jpeg","images/annonce_13.jpeg","images/annonce_14.jpeg","images/annonce_15.jpeg","images/annonce_17.jpeg","images/annonce_18.jpeg"],"ref":"ANN-002"},
-  {"meta":"F3 · 2 chambres + salon","city":"Ouest Foire","price":"300 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"videos/annonce_03_video.mp4","media":["videos/annonce_03_video.mp4"],"ref":"ANN-003"},
-  {"meta":"F2 · 1 chambre + salon","city":"Ouest Foire","price":"250 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"videos/annonce_04_video.mp4","media":["videos/annonce_04_video.mp4"],"ref":"ANN-004"},
-  {"meta":"Bien immobilier à découvrir","city":"Dakar","price":"Nous consulter","desc":"Découvrez ce nouveau bien et demandez sa fiche complète à notre équipe.","img":"images/p5.jpeg","media":["images/p5.jpeg"],"ref":"ANN-005"},
-  {"meta":"Appartement à découvrir","city":"Dakar","price":"Nous consulter","desc":"Nouveau bien de notre sélection. Contactez-nous pour connaître les caractéristiques et la disponibilité.","img":"images/p6.jpeg","media":["images/p6.jpeg"],"ref":"ANN-006"},
-  {"meta":"Villa à découvrir","city":"Dakar","price":"Nous consulter","desc":"Une nouvelle opportunité immobilière à découvrir auprès de Genius.","img":"images/p7.png","media":["images/p7.png"],"ref":"ANN-007"},
-  {"meta":"Bien immobilier à découvrir","city":"Dakar","price":"Nous consulter","desc":"Demandez les informations détaillées et la disponibilité de ce bien auprès de Genius.","img":"images/p8.jpeg","media":["images/p8.jpeg"],"ref":"ANN-008"}
+  {"meta":"F3 · 2 chambres + salon","city":"Ouest Foire","price":"300 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"videos/annonce_03_video.mp4","media":["videos/annonce_03_video.mp4","videos/annonce_04_video.mp4"],"ref":"ANN-003"},
+  {"meta":"F2 · 1 chambre + salon","city":"Ouest Foire","price":"250 000 F CFA","desc":"Espaces spacieux et fonctionnels, Caméra de surveillance 24h/24 et 7j/7, Accès facile, toilettes modernes et équipées, Gardiennage","img":"videos/annonce_04_video.mp4","media":["videos/annonce_03_video.mp4","videos/annonce_04_video.mp4"],"ref":"ANN-004"},
+  {"meta":"Bien immobilier à découvrir","city":"Dakar","price":"Nous consulter","desc":"Découvrez ce nouveau bien et demandez sa fiche complète à notre équipe.","img":"images/cover-annonces-5-8.png","media":["images/cover-annonces-5-8.png"],"ref":"ANN-005"},
+  {"meta":"Appartement à découvrir","city":"Dakar","price":"Nous consulter","desc":"Nouveau bien de notre sélection. Contactez-nous pour connaître les caractéristiques et la disponibilité.","img":"images/cover-annonces-5-8.png","media":["images/cover-annonces-5-8.png"],"ref":"ANN-006"},
+  {"meta":"Villa à découvrir","city":"Dakar","price":"Nous consulter","desc":"Une nouvelle opportunité immobilière à découvrir auprès de Genius.","img":"images/cover-annonces-5-8.png","media":["images/cover-annonces-5-8.png"],"ref":"ANN-007"},
+  {"meta":"Bien immobilier à découvrir","city":"Dakar","price":"Nous consulter","desc":"Demandez les informations détaillées et la disponibilité de ce bien auprès de Genius.","img":"images/cover-annonces-5-8.png","media":["images/cover-annonces-5-8.png"],"ref":"ANN-008"}
 ];
 let annoncePageIndex=0, annoncePageMediaIndex=0;
 const modal = document.getElementById('annonceModal');
@@ -1767,10 +1773,12 @@ function renderAnnoncePageMedia() {
   if (/\.(mp4|webm|ogg)$/i.test(src)) {
     const video = document.createElement('video');
     video.id = 'annonceMainVideo';
-    video.src = src;
     video.controls = true;
     video.playsInline = true;
     video.preload = 'metadata';
+    video.setAttribute('type', 'video/mp4');
+    video.innerHTML = '<source src="' + src + '" type="video/mp4">';
+    video.addEventListener('error', () => { if (!gallery.querySelector('.annonce-video-error')) gallery.insertAdjacentHTML('beforeend', '<div class="annonce-video-error">Cette vidéo ne peut pas être lue. Rechargez la page ou essayez un autre navigateur.</div>'); });
     video.setAttribute('aria-label', a.meta + ' — ' + a.city);
     gallery.insertBefore(video, gallery.querySelector('.annonce-nav'));
   } else {
