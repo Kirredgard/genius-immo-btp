@@ -1124,7 +1124,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" onclick="closeMob()" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
-  <a href="#hero" onclick="closeMob()">Accueil</a>
+  <a href="./" onclick="closeMob()">Accueil</a>
   <a href="#services" onclick="closeMob()">Services</a>
   <a href="#projets" onclick="closeMob()">Projets</a>
   <a href="#apropos" onclick="closeMob()">À propos</a>
@@ -1133,7 +1133,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 </div>
 
 <header id="header">
-  <a href="#hero" class="logo-wrap">
+  <a href="./" class="logo-wrap">
     <img src="images/logo.png" alt="Genius" class="logo-img">
     <div>
       <div class="logo-name">GENIUS</div>
@@ -1141,7 +1141,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
     </div>
   </a>
   <nav>
-    <a href="#hero">Accueil</a>
+    <a href="./">Accueil</a>
     <a href="#services">Services</a>
     <a href="#projets">Projets</a>
     <a href="#apropos">À propos</a>
@@ -1442,7 +1442,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
         <a href="https://wa.me/221775878004" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-    <div class="fcol"><h4>Navigation</h4><ul><li><a href="#hero">Accueil</a></li><li><a href="#services">Services</a></li><li><a href="#projets">Projets</a></li><li><a href="#apropos">À propos</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="fcol"><h4>Navigation</h4><ul><li><a href="./">Accueil</a></li><li><a href="#services">Services</a></li><li><a href="#projets">Projets</a></li><li><a href="#apropos">À propos</a></li><li><a href="#contact">Contact</a></li></ul></div>
     <div class="fcol"><h4>Services</h4><ul><li><a href="#services">Construction neuve</a></li><li><a href="#services">Rénovation</a></li><li><a href="#services">Immobilier</a></li><li><a href="#services">Foncier</a></li><li><a href="#services">Conseil</a></li></ul></div>
     <div class="fcol"><h4>Contact</h4><p>(+221) 77 587 80 04<br>(+221) 33 827 35 26<br><br>contact@genius.fr<br><br>Parcelles Assainies<br>Unité 26, Dakar</p></div>
   </div>
@@ -1692,6 +1692,9 @@ const cObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { animCount(e.target.querySelector('.stat-num'), parseInt(e.target.querySelector('.stat-num').dataset.target)); cObs.unobserve(e.target); } });
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat').forEach(s => cObs.observe(s));
+</script>
+<script>
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
 </script>
 </body>
 </html>

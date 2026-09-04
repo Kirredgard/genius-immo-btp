@@ -416,3 +416,22 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
 });
+
+
+// URL propre : évite /index.html#section tout en conservant le défilement.
+(function () {
+  if (location.pathname.endsWith('/index.html')) {
+    history.replaceState(null, '', location.pathname.slice(0, -'index.html'.length) + location.search);
+  }
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const id = link.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.pushState(null, '', location.pathname.replace(/index\\.html$/, '') + location.search);
+  });
+})();
