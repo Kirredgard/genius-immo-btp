@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genius | Immobilier & BTP</title>
+<title>Toutes les annonces | Genius — Immobilier &amp; BTP</title>
 <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1012,7 +1012,7 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
 .annonce-modal { position:fixed; inset:0; z-index:9999; background:rgba(7,11,15,.86); backdrop-filter:blur(7px); display:none; align-items:center; justify-content:center; padding:24px; }
 .annonce-modal.open { display:flex; }
 .annonce-modal-box { width:min(1180px,96vw); max-height:92vh; overflow:auto; background:#fff; display:grid; grid-template-columns:1.15fr .85fr; position:relative; box-shadow:0 30px 90px rgba(0,0,0,.35); }
-.annonce-close { position:absolute; z-index:5; right:14px; top:14px; width:38px; height:38px; border:0; border-radius:50%; background:rgba(0,0,0,.55); color:#fff; font-size:18px; cursor:pointer; }
+
 .annonce-modal-gallery { min-height:580px; background:#111; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
 #annonceMainImg { width:100%; height:100%; min-height:580px; max-height:72vh; object-fit:cover; display:block; }
 .annonce-nav { position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border:0; border-radius:50%; background:rgba(0,0,0,.48); color:#fff; cursor:pointer; font-size:20px; }
@@ -1112,28 +1112,362 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
   .projets-grid { grid-template-columns: 1fr !important; }
 }
 
+
+.annonce-modal-close.annonce-close {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  z-index: 100 !important;
+  width: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+  border: 2px solid #fff !important;
+  border-radius: 50% !important;
+  background: #101b23 !important;
+  color: #fff !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 25px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  box-shadow: 0 5px 18px rgba(0,0,0,.35) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+.annonce-modal-close.annonce-close:hover {
+  background: #c9a24d !important;
+  border-color: #c9a24d !important;
+}
+
+</style>
+
+<style id="annonces-page-css">
+/* =========================================================
+   PAGE "TOUTES LES ANNONCES" — styles propres à cette page
+   Le header/footer restent ceux de l'accueil, sans modification.
+   ========================================================= */
+.annonces-page-main {
+  padding-top: 105px;
+  background: var(--off-white);
+  min-height: 100vh;
+}
+.annonces-page-hero {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+}
+.annonces-page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(10,19,27,.72),rgba(10,19,27,.62));
+}
+.annonces-page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.annonces-page-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 55px 20px;
+}
+.annonces-page-hero .section-label {
+  color: var(--gold-light);
+}
+.annonces-page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px,6vw,74px);
+  font-weight: 300;
+  line-height: .95;
+  margin: 12px 0 15px;
+}
+.annonces-page-hero h1 em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+.annonces-page-hero p {
+  max-width: 720px;
+  margin: auto;
+  color: rgba(255,255,255,.86);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.annonces-list-section {
+  padding: 65px 5%;
+  background: var(--off-white);
+}
+.annonces-list-head {
+  max-width: 1400px;
+  margin: 0 auto 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+}
+.annonces-list-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(35px,4vw,52px);
+  font-weight: 300;
+  margin: 0;
+}
+.annonces-list-head h2 em {
+  color: var(--gold);
+  font-style: italic;
+}
+.annonces-back {
+  color: var(--gold-dark);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.annonces-full-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 18px;
+}
+.annonce-full-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.annonce-full-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(0,0,0,.12);
+}
+.annonce-full-image {
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+}
+.annonce-full-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+.annonce-full-card:hover .annonce-full-image img { transform: scale(1.04); }
+.annonce-full-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #d9f3e7;
+  color: #4d9b78;
+  padding: 6px 9px;
+  border-radius: 3px;
+  font: 600 10px var(--sans);
+}
+.annonce-full-body { padding: 18px; }
+.annonce-full-meta {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.annonce-full-price {
+  color: #ed9840;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 6px 0;
+}
+.annonce-full-desc {
+  color: var(--text-3);
+  font-size: 12px;
+  line-height: 1.65;
+  min-height: 40px;
+  margin: 7px 0 15px;
+}
+.annonce-full-btn {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold-dark);
+  padding: 9px 13px;
+  font: 600 10px var(--sans);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .2s;
+}
+.annonce-full-btn:hover {
+  background: var(--gold);
+  color: #fff;
+}
+.annonce-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(8,14,19,.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+.annonce-modal.open { display: flex; }
+.annonce-modal-box {
+  position: relative;
+  width: min(950px,100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+}
+.annonce-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  cursor: pointer;
+  font-size: 19px;
+}
+.annonce-modal-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  object-fit: cover;
+}
+.annonce-modal-info {
+  padding: 45px 38px;
+}
+.annonce-modal-label {
+  color: var(--blue-dark);
+  font: 600 10px var(--sans);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.annonce-modal-info h3 {
+  font-family: var(--serif);
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+.annonce-modal-price {
+  color: #ed9840;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.annonce-modal-info p {
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.annonce-contact-btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 18px;
+  background: var(--gold);
+  color: #fff;
+  text-decoration: none;
+  font: 600 10px var(--sans);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+@media (max-width: 1000px) {
+  .annonces-full-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 700px) {
+  .annonces-page-main { padding-top: 88px; }
+  .annonces-page-hero { min-height: 260px; }
+  .annonces-list-section { padding: 48px 5%; }
+  .annonces-list-head { align-items: flex-start; flex-direction: column; }
+  .annonces-full-grid { grid-template-columns: 1fr; }
+  .annonce-modal-box { grid-template-columns: 1fr; }
+  .annonce-modal-photo { min-height: 260px; max-height: 330px; }
+  .annonce-modal-info { padding: 28px; }
+}
+
+<style id="annonces-ajustements">
+/* ===== AJUSTEMENTS ANNONCES ===== */
+.annonces-page-hero {
+  background: #101b23 !important;
+  background-image: none !important;
+  min-height: 260px !important;
+}
+.annonces-page-hero::before {
+  display: none !important;
+}
+.annonces-page-hero-content {
+  padding: 58px 20px !important;
+}
+.annonce-reference {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 11px;
+  padding: 5px 9px;
+  border: 1px solid #e7d19a;
+  color: #9aa8b2;
+  font: 600 9px var(--sans);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.annonce-modal {
+  background: rgba(8,14,19,.82) !important;
+}
+.annonce-modal-box {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+.annonce-modal-close {
+  width: 38px !important;
+  height: 38px !important;
+  top: 14px !important;
+  right: 14px !important;
+  font-size: 20px !important;
+}
+</style>
+<style id="annonces-logic-final">
+.annonces-page-hero{background:#101b23!important;background-image:none!important;min-height:270px!important;}
+.annonces-page-hero::before{display:none!important;}
+.annonce-modal{display:none!important;position:fixed!important;inset:0!important;z-index:99999!important;background:rgba(7,11,15,.88)!important;align-items:center!important;justify-content:center!important;padding:24px!important;}
+.annonce-modal.open{display:flex!important;}
+.annonce-modal-box{position:relative!important;z-index:100000!important;}
+
+.annonce-close:hover{background:#c9a24d!important;border-color:#c9a24d!important;}
+.annonce-reference{display:inline-block!important;margin-top:7px!important;color:#a8842c!important;font:600 9px var(--sans)!important;letter-spacing:1.2px!important;text-transform:uppercase!important;}
+.annonce-modal-ref{color:#0B7FB5!important;font-weight:700!important;}
 </style>
 </head>
 <body>
 
-<div id="preloader">
-  <div class="pre-logo">GENIUS</div>
-  <div class="pre-tagline">Immobilier &amp; BTP</div>
-  <div class="pre-bar"><div class="pre-fill"></div></div>
-</div>
-
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" onclick="closeMob()" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
-  <a href="#hero" onclick="closeMob()">Accueil</a>
-  <a href="#services" onclick="closeMob()">Services</a>
-  <a href="#projets" onclick="closeMob()">Projets</a>
-  <a href="#apropos" onclick="closeMob()">À propos</a>
-  <a href="#contact" onclick="closeMob()">Contact</a>
-  <a href="#contact" class="mobile-nav-cta" onclick="closeMob()">Devis gratuit →</a>
+  <a href="index.html#hero" onclick="closeMob()">Accueil</a>
+  <a href="index.html#services" onclick="closeMob()">Services</a>
+  <a href="index.html#projets" onclick="closeMob()">Projets</a>
+  <a href="index.html#apropos" onclick="closeMob()">À propos</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+  <a href="index.html#contact" class="mobile-nav-cta" onclick="closeMob()">Devis gratuit →</a>
 </div>
-
 <header id="header">
-  <a href="#hero" class="logo-wrap">
+  <a href="index.html#hero" class="logo-wrap">
     <img src="images/logo.png" alt="Genius" class="logo-img">
     <div>
       <div class="logo-name">GENIUS</div>
@@ -1141,293 +1475,123 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
     </div>
   </a>
   <nav>
-    <a href="#hero">Accueil</a>
-    <a href="#services">Services</a>
-    <a href="#projets">Projets</a>
-    <a href="#apropos">À propos</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#hero">Accueil</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#projets">Projets</a>
+    <a href="index.html#apropos">À propos</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
-  <a href="#contact" class="btn-nav">Devis gratuit →</a>
+  <a href="index.html#contact" class="btn-nav">Devis gratuit →</a>
   <div class="burger" id="burger"><span></span><span></span><span></span></div>
 </header>
 
-<section class="home-hero" id="hero">
-  <img src="images/immobtp.png" class="home-hero-bg" alt="Projet immobilier et construction Genius">
-  <div class="home-hero-content">
-    <div class="home-eyebrow">Dakar · Sénégal</div>
-    <h1 class="home-title">Genius<em>Immobilier &amp; BTP</em></h1>
-    <p class="home-lead">Nous transformons vos ambitions en réalisations durables : immobilier, construction, rénovation et accompagnement stratégique, avec exigence, transparence et élégance.</p>
-    <div class="home-actions">
-      <span class="home-pill">Gestion immobilière</span>
-      <span class="home-pill">Syndic de copropriété</span>
-      <span class="home-pill">Fiscalité</span>
-      <span class="home-pill">Foncier</span>
-      <span class="home-pill">Construction</span>
-      <span class="home-pill">Rénovation</span>
-      <span class="home-pill">Conseil</span>
+<main class="annonces-page-main">
+  <section class="annonces-page-hero">
+<div class="annonces-page-hero-content">
+      <div class="section-label">IMMOBILIER · GENIUS</div>
+      <h1>Toutes nos <em>annonces</em></h1>
+      <p>Découvrez l'ensemble des biens proposés par Genius et contactez-nous pour obtenir plus d'informations ou organiser une visite.</p>
     </div>
-    <div class="hero-btns" style="margin-top:28px;">
-      <a href="#projets" class="btn-primary">Voir nos réalisations</a>
-      <a href="#contact" class="btn-secondary">Demander un devis</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="annonces-section" id="annonces">
-  <div class="annonces-shell">
-    <div class="annonces-head">
-      <div>
-        <div class="annonces-kicker">Votre futur bien vous attend</div>
-        <h2 class="annonces-title">Nos dernières annonces</h2>
-      </div>
-      <div class="annonces-actions">
-        <a class="annonces-contact" href="#contact"><i class="fa-solid fa-envelope"></i> Nous contacter</a>
-        <a class="annonces-link" href="annonces.html">Voir toutes les annonces →</a>
-      </div>
+  <section class="annonces-list-section" id="toutes-les-annonces">
+    <div class="annonces-list-head">
+      <h2>Nos <em>biens disponibles</em></h2>
+      <a class="annonces-back" href="index.html#annonces">← Retour aux dernières annonces</a>
     </div>
-    <div class="annonces-grid">
-      <article class="annonce-card" onclick="openAnnonce(0)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p1.jpeg" alt="Appartement 2 pièces à Quetigny"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">2 pièces · 40m² · Non meublé<br>21800 Quetigny</div><div class="annonce-price">613€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+    <div class="annonces-full-grid">
+      
+    <article class="annonce-full-card" data-id="0">
+      <div class="annonce-full-image">
+        <img src="images/p1.jpeg" alt="2 pièces · 40 m² · Non meublé à 21800 Quetigny">
+        <span class="annonce-full-badge">À la une</span>
+      </div>
+      <div class="annonce-full-body">
+        <div class="annonce-full-meta">2 pièces · 40 m² · Non meublé<br>21800 Quetigny</div><div class="annonce-reference">Réf. ANN-001</div>
+        <div class="annonce-full-price">150 000 F CFA / mois</div>
+        <div class="annonce-full-desc">Appartement lumineux, confortable et idéalement situé.</div>
+        <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </article>
+    <article class="annonce-full-card" data-id="1">
+      <div class="annonce-full-image">
+        <img src="images/p2.jpeg" alt="2 pièces · 39 m² · Meublé à 31490 Léguevin">
+        <span class="annonce-full-badge">À la une</span>
+      </div>
+      <div class="annonce-full-body">
+        <div class="annonce-full-meta">2 pièces · 39 m² · Meublé<br>31490 Léguevin</div><div class="annonce-reference">Réf. ANN-002</div>
+        <div class="annonce-full-price">175 000 F CFA / mois</div>
+        <div class="annonce-full-desc">Appartement meublé, chaleureux et prêt à vivre.</div>
+        <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </article>
+    <article class="annonce-full-card" data-id="2">
+      <div class="annonce-full-image">
+        <img src="images/p3.jpeg" alt="4 pièces · 91 m² · Meublé à 92320 Châtillon">
+        <span class="annonce-full-badge">À la une</span>
+      </div>
+      <div class="annonce-full-body">
+        <div class="annonce-full-meta">4 pièces · 91 m² · Meublé<br>92320 Châtillon</div><div class="annonce-reference">Réf. ANN-003</div>
+        <div class="annonce-full-price">225 000 F CFA / mois</div>
+        <div class="annonce-full-desc">Bel appartement familial avec de beaux volumes et une agréable luminosité.</div>
+        <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </article>
+    <article class="annonce-full-card" data-id="3">
+      <div class="annonce-full-image">
+        <img src="images/p4.jpeg" alt="4 pièces · 65,34 m² · Meublé à 33000 Bordeaux">
+        <span class="annonce-full-badge">À la une</span>
+      </div>
+      <div class="annonce-full-body">
+        <div class="annonce-full-meta">4 pièces · 65,34 m² · Meublé<br>33000 Bordeaux</div><div class="annonce-reference">Réf. ANN-004</div>
+        <div class="annonce-full-price">300 000 F CFA / mois</div>
+        <div class="annonce-full-desc">Appartement élégant et fonctionnel au cœur de Bordeaux.</div>
+        <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </article>
+      <article class="annonce-full-card" data-id="4">
+        <div class="annonce-full-image"><img src="images/p5.jpeg" alt="Bien immobilier à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-body">
+          <div class="annonce-full-meta">Bien immobilier à découvrir<br>Dakar</div>
+          <div class="annonce-reference">Réf. ANN-005</div>
+          <div class="annonce-full-price">Nous consulter</div>
+          <div class="annonce-full-desc">Découvrez ce nouveau bien et demandez sa fiche complète à notre équipe.</div>
+          <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
       </article>
-      <article class="annonce-card" onclick="openAnnonce(1)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p2.jpeg" alt="Appartement 2 pièces à Léguevin"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">2 pièces · 39m² · Meublé<br>31490 Léguevin</div><div class="annonce-price">620€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+      <article class="annonce-full-card" data-id="5">
+        <div class="annonce-full-image"><img src="images/p6.jpeg" alt="Appartement à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-body">
+          <div class="annonce-full-meta">Appartement à découvrir<br>Dakar</div>
+          <div class="annonce-reference">Réf. ANN-006</div>
+          <div class="annonce-full-price">Nous consulter</div>
+          <div class="annonce-full-desc">Nouveau bien de notre sélection. Contactez-nous pour connaître les caractéristiques et la disponibilité.</div>
+          <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
       </article>
-      <article class="annonce-card" onclick="openAnnonce(2)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p3.jpeg" alt="Appartement 4 pièces à Châtillon"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">4 pièces · 91m² · Meublé<br>92320 Châtillon</div><div class="annonce-price">2 658€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+      <article class="annonce-full-card" data-id="6">
+        <div class="annonce-full-image"><img src="images/p7.png" alt="Villa à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-body">
+          <div class="annonce-full-meta">Villa à découvrir<br>Dakar</div>
+          <div class="annonce-reference">Réf. ANN-007</div>
+          <div class="annonce-full-price">Nous consulter</div>
+          <div class="annonce-full-desc">Une nouvelle opportunité immobilière à découvrir auprès de Genius.</div>
+          <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
       </article>
-      <article class="annonce-card" onclick="openAnnonce(3)" tabindex="0" role="button">
-        <div class="annonce-image"><img src="images/p4.jpeg" alt="Appartement 4 pièces à Bordeaux"><span class="annonce-badge">À la une</span></div>
-        <div class="annonce-body"><div class="annonce-meta">4 pièces · 65,34m² · Meublé<br>33000 Bordeaux</div><div class="annonce-price">1 760€ cc</div><div class="annonce-more">Voir le bien <i class="fa-solid fa-arrow-right"></i></div></div>
+      <article class="annonce-full-card" data-id="7">
+        <div class="annonce-full-image"><img src="images/p8.jpeg" alt="Bien immobilier à découvrir à Dakar"><span class="annonce-full-badge">À découvrir</span></div>
+        <div class="annonce-full-body">
+          <div class="annonce-full-meta">Bien immobilier à découvrir<br>Dakar</div>
+          <div class="annonce-reference">Réf. ANN-008</div>
+          <div class="annonce-full-price">Nous consulter</div>
+          <div class="annonce-full-desc">Demandez les informations détaillées et la disponibilité de ce bien auprès de Genius.</div>
+          <button class="annonce-full-btn" type="button">Voir le bien <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
       </article>
     </div>
-  </div>
-</section>
-
-<div class="annonce-modal" id="annonceModal" aria-hidden="true" onclick="closeAnnonceOutside(event)">
-  <div class="annonce-modal-box">
-    <button class="annonce-close" onclick="closeAnnonce()" aria-label="Fermer">✕</button>
-    <div class="annonce-modal-gallery">
-      <img id="annonceMainImg" src="" alt="">
-      <button class="annonce-nav prev" onclick="annonceNav(-1)">&#10094;</button>
-      <button class="annonce-nav next" onclick="annonceNav(1)">&#10095;</button>
-      <div class="annonce-thumbs" id="annonceThumbs"></div>
-    </div>
-    <div class="annonce-modal-info">
-      <div class="annonce-modal-label" id="annonceModalLabel"></div>
-      <h3 id="annonceModalTitle"></h3>
-      <div class="annonce-modal-price" id="annonceModalPrice"></div>
-      <p id="annonceModalDesc"></p>
-      <div class="annonce-modal-details" id="annonceModalDetails"></div>
-      <a href="#contact" class="annonce-modal-btn" onclick="closeAnnonce()"><i class="fa-solid fa-envelope"></i> Nous contacter</a>
-    </div>
-  </div>
-</div>
-
-<section class="services services-redesigned" id="services">
-  <div class="services-top reveal">
-    <div>
-      <div class="section-label">Nos expertises</div>
-      <h2 class="section-h2">Nos <em>services</em></h2>
-      <div class="gold-rule"></div>
-      <p class="services-intro">Nous vous accompagnons dans tous vos projets avec expertise, rigueur et élégance.</p>
-    </div>
-  </div>
-
-  <div class="services-seven reveal">
-    <div class="svc-item"><i class="fa-solid fa-building"></i><h4>Gestion immobilière</h4><p>Administration, suivi et valorisation de vos biens immobiliers.</p></div>
-    <div class="svc-item"><i class="fa-solid fa-building-columns"></i><h4>Syndic de copropriété</h4><p>Gestion rigoureuse des copropriétés et accompagnement des copropriétaires.</p></div>
-    <div class="svc-item"><i class="fa-solid fa-file-invoice-dollar"></i><h4>Fiscalité</h4><p>Conseils et accompagnement pour vos démarches et projets immobiliers.</p></div>
-    <div class="svc-item"><i class="fa-solid fa-map-location-dot"></i><h4>Foncier</h4><p>Acquisition, sécurisation et gestion de vos opérations foncières.</p></div>
-    <div class="svc-item"><i class="fa-solid fa-house-chimney"></i><h4>Construction</h4><p>Maisons, villas et bâtiments sur mesure avec une exigence de qualité.</p></div>
-    <div class="svc-item"><i class="fa-solid fa-rotate"></i><h4>Rénovation</h4><p>Transformation complète ou partielle avec des finitions haut de gamme.</p></div>
-    <div class="svc-item"><i class="fa-solid fa-lightbulb"></i><h4>Conseil</h4><p>Accompagnement stratégique et recommandations adaptées à votre projet.</p></div>
-  </div>
-</section>
-
-<section class="projets" id="projets">
-  <div class="projets-head reveal">
-    <div class="section-label" style="justify-content:center;">Portfolio</div>
-    <h2 class="section-h2">Nos <em>réalisations</em></h2>
-    <div class="gold-rule"></div>
-  </div>
-
-  <div class="proj-filters reveal">
-    <button class="proj-filter active" onclick="filterProj(this,'all')">Tous</button>
-    <button class="proj-filter" onclick="filterProj(this,'construction')">Construction</button>
-    <button class="proj-filter" onclick="filterProj(this,'renovation')">Rénovation</button>
-    <button class="proj-filter" onclick="filterProj(this,'immobilier')">Immobilier</button>
-    <button class="proj-filter" onclick="filterProj(this,'conseil')">Conseil</button>
-  </div>
-
-  <div class="projets-grid">
-
-    <!-- Projet 1 — Construction R+4 -->
-    <div class="proj wide reveal" data-cat="construction" onclick="openLightbox(0)">
-      <img class="proj-media" src="images/ch1/p1.jpeg" alt="Immeuble R+4 OUAKAM" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-media-placeholder" style="display:none;background:linear-gradient(135deg,#0B2233,#134060)"><i class="fa-solid fa-building-columns"></i></div>
-      <div class="proj-inner">
-        <div class="proj-cat">Construction · OUAKAM, Dakar</div>
-        <div class="proj-name">Immeuble R+4 — Cité Avion</div>
-        <div class="proj-desc">Bâtiment résidentiel de 320 m² livré en 2025</div>
-        <div class="proj-cta"><i class="fa-solid fa-expand"></i> Voir le projet</div>
-      </div>
-    </div>
-
-    <!-- Projet 2 — Construction maison -->
-    <div class="proj reveal" data-cat="construction" onclick="openLightbox(1)" style="transition-delay:.1s">
-      <img class="proj-media" src="images/construction.png" alt="Construction Maison" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-media-placeholder" style="display:none;background:linear-gradient(135deg,#1a2a1a,#243824)"><i class="fa-solid fa-house-chimney"></i></div>
-      <div class="proj-inner">
-        <div class="proj-cat">Construction · Dakar</div>
-        <div class="proj-name">Maison haut standing</div>
-        <div class="proj-desc">Confort, luminosité et élégance sur mesure</div>
-        <div class="proj-cta"><i class="fa-solid fa-expand"></i> Voir le projet</div>
-      </div>
-    </div>
-
-    <!-- Projet 3 — Rénovation R+2 -->
-    <div class="proj reveal" data-cat="renovation" onclick="openLightbox(2)" style="transition-delay:.1s">
-      <img class="proj-media" src="images/renovation.png" alt="Rénovation R+2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-media-placeholder" style="display:none;background:linear-gradient(135deg,#201520,#342034)"><i class="fa-solid fa-rotate"></i></div>
-      <div class="proj-inner">
-        <div class="proj-cat">Rénovation · Parcelles Assainies</div>
-        <div class="proj-name">Immeuble R+2 — Unité 19</div>
-        <div class="proj-desc">Réfection complète — PRT : M. L. CONTE</div>
-        <div class="proj-cta"><i class="fa-solid fa-expand"></i> Voir le projet</div>
-      </div>
-    </div>
-
-    <!-- Projet 4 — Rénovation R+4 -->
-    <div class="proj reveal" data-cat="renovation" onclick="openLightbox(3)" style="transition-delay:.15s">
-      <img class="proj-media" src="images/renovation.png" alt="Rénovation R+4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-media-placeholder" style="display:none;background:linear-gradient(135deg,#1a1a0a,#2e2e10)"><i class="fa-solid fa-rotate"></i></div>
-      <div class="proj-inner">
-        <div class="proj-cat">Rénovation · OUAKAM</div>
-        <div class="proj-name">Immeuble R+4 — Cité Avion</div>
-        <div class="proj-desc">PRT : Aliou GADJIGO</div>
-        <div class="proj-cta"><i class="fa-solid fa-expand"></i> Voir le projet</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== LIGHTBOX ===== -->
-<div class="lb-overlay" id="lightbox" onclick="closeLbOutside(event)">
-  <div class="lb-box">
-    <div class="lb-media">
-      <div class="lb-main" id="lb-main">
-        <img id="lb-img" src="" alt="">
-      </div>
-      <button class="lb-nav prev" onclick="lbNav(-1)">&#10094;</button>
-      <button class="lb-nav next" onclick="lbNav(1)">&#10095;</button>
-      <div class="lb-counter" id="lb-counter">1 / 1</div>
-      <div class="lb-thumbs" id="lb-thumbs"></div>
-    </div>
-    <div class="lb-info">
-      <button class="lb-close" onclick="closeLb()">✕</button>
-      <div class="lb-cat" id="lb-cat"></div>
-      <div class="lb-title" id="lb-title"></div>
-      <div class="lb-rule"></div>
-      <p class="lb-desc" id="lb-desc"></p>
-      <div class="lb-details" id="lb-details"></div>
-      <a href="#contact" class="lb-btn" onclick="closeLb()"><i class="fa-solid fa-envelope"></i> Demander un devis</a>
-    </div>
-  </div>
-</div>
-
-<section class="temos">
-  <div class="temos-head reveal">
-    <div class="section-label" style="justify-content:center;">Témoignages</div>
-    <h2 class="section-h2">Ce que disent nos <em>clients</em></h2>
-    <div class="gold-rule"></div>
-  </div>
-  <div class="temo-overflow">
-    <div class="temo-track">
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Professionnelle et à l'écoute, notre maison a été construite exactement comme on le souhaitait.</p><div class="temo-author">— Patrice L.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Équipe réactive et compétente, achat immobilier sans stress. Nous recommandons sans hésiter.</p><div class="temo-author">— Ibrahima F.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Service sérieux et transparent, très satisfait du résultat final. Une confiance totale dès le début.</p><div class="temo-author">— Sophie M.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Équipe très professionnelle et à l'écoute. Chaque détail a été soigné avec une grande attention.</p><div class="temo-author">— Cheikh Mbacké D.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">À l'écoute et des solutions adaptées. Le meilleur partenaire pour mon investissement immobilier.</p><div class="temo-author">— Pape Djiby M.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Projet réalisé avec excellence et précision. Nous recommandons sans hésiter à notre entourage.</p><div class="temo-author">— Ibrahima K.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Équipe très professionnelle. Merci pour tout, résultat au-delà de nos attentes.</p><div class="temo-author">— Baye Modou D.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Un accompagnement d'exception de la conception à la remise des clés. Magnifique travail.</p><div class="temo-author">— Sokhna Bintou M.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Professionnelle et à l'écoute, notre maison a été construite exactement comme on le souhaitait.</p><div class="temo-author">— Patrice L.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Équipe réactive et compétente, achat immobilier sans stress. Nous recommandons sans hésiter.</p><div class="temo-author">— Ibrahima F.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Service sérieux et transparent, très satisfait du résultat final. Une confiance totale dès le début.</p><div class="temo-author">— Sophie M.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Équipe très professionnelle et à l'écoute. Chaque détail a été soigné avec une grande attention.</p><div class="temo-author">— Cheikh Mbacké D.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">À l'écoute et des solutions adaptées. Le meilleur partenaire pour mon investissement immobilier.</p><div class="temo-author">— Pape Djiby M.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Projet réalisé avec excellence et précision. Nous recommandons sans hésiter à notre entourage.</p><div class="temo-author">— Ibrahima K.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Équipe très professionnelle. Merci pour tout, résultat au-delà de nos attentes.</p><div class="temo-author">— Baye Modou D.</div></div>
-      <div class="temo-card"><div class="temo-quote">❝</div><div class="temo-stars">★★★★★</div><p class="temo-text">Un accompagnement d'exception de la conception à la remise des clés. Magnifique travail.</p><div class="temo-author">— Sokhna Bintou M.</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="apropos" id="apropos">
- <div class="services-top reveal">
-    <div>
-      <div class="section-label">Nous connaître</div>
-      <h2 class="section-h2">À <em>Propos</em></h2>
-      <div class="gold-rule"></div>
-    </div>
-  </div>
-  <div class="apropos-inner">
-    <div class="rl">
-      <div class="apropos-img-wrap">
-        <img src="images/papis.png" alt="M. Babacar Sadikh FALL" class="apropos-img">
-        <div class="img-frame"></div>
-        <div class="img-badge"><div class="big">10+</div><div class="small">Ans d'expérience</div></div>
-      </div>
-    </div>
-    <div class="rr">
-      <div class="section-label">Notre histoire</div>
-      <h2 class="section-h2">L'excellence <em>au cœur</em> de chaque projet</h2>
-      <div class="gold-rule"></div>
-      <p class="apropos-p"><strong>Genius</strong> est une entreprise spécialisée dans l'immobilier, la construction, la rénovation et le conseil. Dédiée à la création de projets durables, élégants et sur mesure depuis Dakar.</p>
-      <p class="apropos-p">Nous accompagnons nos clients à chaque étape, de l'analyse initiale jusqu'à la livraison finale, avec qualité, transparence et une exigence constante d'excellence.</p>
-      <ul class="values">
-        <li><div class="check"><i class="fa-solid fa-check"></i></div> Expertise technique et stratégique</li>
-        <li><div class="check"><i class="fa-solid fa-check"></i></div> Accompagnement personnalisé à chaque étape</li>
-        <li><div class="check"><i class="fa-solid fa-check"></i></div> Respect strict des délais et du budget</li>
-        <li><div class="check"><i class="fa-solid fa-check"></i></div> Finitions haut de gamme irréprochables</li>
-      </ul>
-      <div class="director-block">
-        <p class="director-quote">« Chez Genius, notre ambition est simple : offrir à chaque client une expérience sereine et un résultat irréprochable. Nous croyons qu'un projet réussi repose sur l'écoute, la confiance et une exécution maîtrisée dans les moindres détails. »</p>
-        <div class="director-name">M. Babacar Sadikh FALL — Président & Directeur Général</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <div class="rl">
-      <div class="section-label">Nous contacter</div>
-      <h2 class="section-h2">Parlons de<br>votre <em>projet</em></h2>
-      <div class="gold-rule"></div>
-      <p class="contact-p">Chaque grande réalisation commence par une conversation. Décrivez-nous votre projet et nous vous répondrons dans les plus brefs délais.</p>
-      <div class="contact-items">
-        <div class="contact-item"><div class="ci-icon"><i class="fa-solid fa-phone"></i></div><div><div class="ci-label">Téléphone</div><div class="ci-val">(+221) 77 587 80 04 · (+221) 33 827 35 26</div></div></div>
-        <div class="contact-item"><div class="ci-icon"><i class="fa-solid fa-envelope"></i></div><div><div class="ci-label">Email</div><div class="ci-val">contact@genius.fr</div></div></div>
-        <div class="contact-item"><div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="ci-label">Adresse</div><div class="ci-val">Parcelles Assainies Unité 26, Villa 263<br>Dakar, Sénégal</div></div></div>
-        <div class="contact-item"><div class="ci-icon"><i class="fab fa-facebook-f"></i></div><div><div class="ci-label">Facebook</div><div class="ci-val"><a href="https://www.facebook.com/geniusImmobilierBTP" target="_blank">geniusImmobilierBTP</a></div></div></div>
-      </div>
-    </div>
-    <div class="rr">
-      <div class="contact-form">
-        <div class="form-row"><div class="fgroup"><input type="text" placeholder="Prénom"></div><div class="fgroup"><input type="text" placeholder="Nom"></div></div>
-        <div class="form-row"><div class="fgroup"><input type="email" placeholder="Email"></div><div class="fgroup"><input type="tel" placeholder="Téléphone"></div></div>
-        <div class="form-row"><div class="fgroup full"><input type="text" placeholder="Objet — Construction, Rénovation, Immobilier..."></div></div>
-        <div class="form-row"><div class="fgroup full"><textarea placeholder="Décrivez votre projet en détail..."></textarea></div></div>
-        <button class="btn-submit"><span>Envoyer le message</span><i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
   <div class="footer-grid">
@@ -1442,8 +1606,8 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
         <a href="https://wa.me/221775878004" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-    <div class="fcol"><h4>Navigation</h4><ul><li><a href="#hero">Accueil</a></li><li><a href="#services">Services</a></li><li><a href="#projets">Projets</a></li><li><a href="#apropos">À propos</a></li><li><a href="#contact">Contact</a></li></ul></div>
-    <div class="fcol"><h4>Services</h4><ul><li><a href="#services">Construction neuve</a></li><li><a href="#services">Rénovation</a></li><li><a href="#services">Immobilier</a></li><li><a href="#services">Foncier</a></li><li><a href="#services">Conseil</a></li></ul></div>
+    <div class="fcol"><h4>Navigation</h4><ul><li><a href="index.html#hero">Accueil</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#projets">Projets</a></li><li><a href="index.html#apropos">À propos</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div class="fcol"><h4>Services</h4><ul><li><a href="index.html#services">Construction neuve</a></li><li><a href="index.html#services">Rénovation</a></li><li><a href="index.html#services">Immobilier</a></li><li><a href="index.html#services">Foncier</a></li><li><a href="index.html#services">Conseil</a></li></ul></div>
     <div class="fcol"><h4>Contact</h4><p>(+221) 77 587 80 04<br>(+221) 33 827 35 26<br><br>contact@genius.fr<br><br>Parcelles Assainies<br>Unité 26, Dakar</p></div>
   </div>
   <div class="footer-bottom">
@@ -1452,246 +1616,78 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
   </div>
 </footer>
 
-<a href="https://wa.me/221775878004" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="annonce-modal" id="annonceModal" aria-hidden="true">
+  <div class="annonce-modal-box">
+    <button class="annonce-modal-close annonce-close" type="button" aria-label="Fermer le détail" title="Fermer" onclick="closeAnnoncePage(event)">×</button>
+    <img class="annonce-modal-photo" id="annonceModalPhoto" src="" alt="">
+    <div class="annonce-modal-info">
+      <div class="annonce-modal-label" id="annonceModalRef"></div>
+      <h3 id="annonceModalTitle"></h3>
+      <div class="annonce-modal-price" id="annonceModalPrice"></div>
+      <p id="annonceModalDesc"></p>
+      <p id="annonceModalMeta"></p>
+      <a class="annonce-contact-btn" href="index.html#contact">Nous contacter →</a>
+    </div>
+  </div>
+</div>
 
 <script>
+const annonces = [{"meta": "2 pièces · 40 m² · Non meublé", "city": "21800 Quetigny", "price": "150 000 F CFA / mois", "desc": "Appartement lumineux, confortable et idéalement situé.", "img": "images/p1.jpeg", "ref": "ANN-001"}, {"meta": "2 pièces · 39 m² · Meublé", "city": "31490 Léguevin", "price": "175 000 F CFA / mois", "desc": "Appartement meublé, chaleureux et prêt à vivre.", "img": "images/p2.jpeg", "ref": "ANN-002"}, {"meta": "4 pièces · 91 m² · Meublé", "city": "92320 Châtillon", "price": "225 000 F CFA / mois", "desc": "Bel appartement familial avec de beaux volumes et une agréable luminosité.", "img": "images/p3.jpeg", "ref": "ANN-003"}, {"meta": "4 pièces · 65,34 m² · Meublé", "city": "33000 Bordeaux", "price": "300 000 F CFA / mois", "desc": "Appartement élégant et fonctionnel au cœur de Bordeaux.", "img": "images/p4.jpeg", "ref": "ANN-004"}, {"meta": "Bien immobilier à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Découvrez ce nouveau bien et demandez sa fiche complète à notre équipe.", "img": "images/p5.jpeg", "ref": "ANN-005"}, {"meta": "Appartement à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Nouveau bien de notre sélection. Contactez-nous pour connaître les caractéristiques et la disponibilité.", "img": "images/p6.jpeg", "ref": "ANN-006"}, {"meta": "Villa à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Une nouvelle opportunité immobilière à découvrir auprès de Genius.", "img": "images/p7.png", "ref": "ANN-007"}, {"meta": "Bien immobilier à découvrir", "city": "Dakar", "price": "Nous consulter", "desc": "Demandez les informations détaillées et la disponibilité de ce bien auprès de Genius.", "img": "images/p8.jpeg", "ref": "ANN-008"}];
+const modal = document.getElementById('annonceModal');
+const photo = document.getElementById('annonceModalPhoto');
+const title = document.getElementById('annonceModalTitle');
+const price = document.getElementById('annonceModalPrice');
+const desc = document.getElementById('annonceModalDesc');
+const meta = document.getElementById('annonceModalMeta');
+const refEl = document.getElementById('annonceModalRef');
 
-// ===== ANNONCES =====
-const annonces = [
-  {
-    label:'Appartement · 2 pièces · 40m²',
-    title:'Appartement 2 pièces à Quetigny',
-    price:'613€ cc',
-    desc:'Appartement de 40 m², non meublé, situé à 21800 Quetigny. Un bien fonctionnel et agréable, idéal pour une première installation ou un investissement locatif.',
-    details:[['Type','2 pièces'],['Surface','40 m²'],['Meublé','Non meublé'],['Localisation','21800 Quetigny']],
-    media:['images/p1.jpeg']
-  },
-  {
-    label:'Appartement · 2 pièces · 39m²',
-    title:'Appartement 2 pièces à Léguevin',
-    price:'620€ cc',
-    desc:'Appartement meublé de 39 m² situé à 31490 Léguevin. Un logement pratique et confortable, prêt à accueillir ses futurs occupants.',
-    details:[['Type','2 pièces'],['Surface','39 m²'],['Meublé','Meublé'],['Localisation','31490 Léguevin']],
-    media:['images/p2.jpeg']
-  },
-  {
-    label:'Appartement · 4 pièces · 91m²',
-    title:'Appartement 4 pièces à Châtillon',
-    price:'2 658€ cc',
-    desc:'Spacieux appartement meublé de 91 m² à 92320 Châtillon. Une belle surface pour un cadre de vie confortable et familial.',
-    details:[['Type','4 pièces'],['Surface','91 m²'],['Meublé','Meublé'],['Localisation','92320 Châtillon']],
-    media:['images/p3.jpeg']
-  },
-  {
-    label:'Appartement · 4 pièces · 65,34m²',
-    title:'Appartement 4 pièces à Bordeaux',
-    price:'1 760€ cc',
-    desc:'Appartement meublé de 65,34 m² situé à 33000 Bordeaux. Un bien pensé pour conjuguer confort, fonctionnalité et emplacement.',
-    details:[['Type','4 pièces'],['Surface','65,34 m²'],['Meublé','Meublé'],['Localisation','33000 Bordeaux']],
-    media:['images/p4.jpeg']
-  }
-];
-let annonceIndex=0, annonceMediaIndex=0;
-function openAnnonce(i){
-  annonceIndex=i; annonceMediaIndex=0;
-  const a=annonces[i], modal=document.getElementById('annonceModal');
-  document.getElementById('annonceModalLabel').textContent=a.label;
-  document.getElementById('annonceModalTitle').textContent=a.title;
-  document.getElementById('annonceModalPrice').textContent=a.price;
-  document.getElementById('annonceModalDesc').textContent=a.desc;
-  document.getElementById('annonceModalDetails').innerHTML=a.details.map(d=>`<div class="annonce-detail"><span>${d[0]}</span><strong>${d[1]}</strong></div>`).join('');
-  renderAnnonceMedia();
-  modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
-}
-function renderAnnonceMedia(){
-  const a=annonces[annonceIndex];
-  document.getElementById('annonceMainImg').src=a.media[annonceMediaIndex];
-  document.getElementById('annonceMainImg').alt=a.title;
-  document.getElementById('annonceThumbs').innerHTML=a.media.map((src,i)=>`<img class="annonce-thumb ${i===annonceMediaIndex?'active':''}" src="${src}" onclick="setAnnonceMedia(${i})" alt="">`).join('');
-}
-function setAnnonceMedia(i){annonceMediaIndex=i;renderAnnonceMedia();}
-function annonceNav(dir){
-  const len=annonces[annonceIndex].media.length;
-  annonceMediaIndex=(annonceMediaIndex+dir+len)%len; renderAnnonceMedia();
-}
-function closeAnnonce(){const m=document.getElementById('annonceModal');m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-function closeAnnonceOutside(e){if(e.target===e.currentTarget)closeAnnonce();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAnnonce();});
-document.querySelectorAll('.annonce-card').forEach((c,i)=>c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openAnnonce(i);}}));
-
-// ===== PROJETS DATA =====
-const projets = [
-{
-    cat: 'Construction · OUAKAM, Dakar',
-    title: 'Immeuble R+4 — Cité Avion',
-    desc: 'Construction d\'un bâtiment R+4 conçu pour accueillir des appartements modernes et des commerces au rez-de-chaussée. Installations électriques et sanitaires conformes aux standards, aménagement extérieur avec accès véhicules et espaces verts.',
-    details: [
-      { icon:'fa-location-dot', label:'Localisation', val:'OUAKAM, Cité Avion, Dakar' },
-      { icon:'fa-ruler-combined', label:'Surface', val:'320 m²' },
-      { icon:'fa-calendar-check', label:'Livraison', val:'2025' },
-      { icon:'fa-building', label:'Type', val:'Construction neuve R+4' },
-      { icon:'fa-leaf', label:'Performance', val:'Haute efficacité énergétique' },
-    ],
-    media: [
-      
-      { type:'image', src:'images/ch1/p2.jpeg' },
-      { type:'image', src:'images/ch1/p3.jpeg' },
-      { type:'image', src:'images/ch1/p4.jpeg' },
-      { type:'image', src:'images/ch1/p5.jpeg' },
-	  { type:'image', src:'images/ch1/p6.jpeg' },
-	  { type:'image', src:'images/ch1/p7.jpeg' },
-	  { type:'image', src:'images/ch1/p8.jpeg' },
-    ]
-  },
-{
-    cat: 'Construction · Dakar',
-    title: 'Maison haut standing',
-    desc: 'Construction d\'une maison de très haut standing conçue pour offrir confort, luminosité et élégance. Matériaux premium, finitions irréprochables, accompagnement de la conception à la livraison.',
-    details: [
-      { icon:'fa-location-dot', label:'Localisation', val:'Dakar, Sénégal' },
-      { icon:'fa-building', label:'Type', val:'Construction neuve' },
-      { icon:'fa-star', label:'Standing', val:'Haut de gamme' },
-    ],
-    media: [
-      { type:'image', src:'images/construction.png' },
-    ]
-  },
-{
-    cat: 'Rénovation · Parcelles Assainies',
-    title: 'Immeuble R+2 — Unité 19',
-    desc: 'Réfection complète d\'un immeuble R+2 à Parcelles Assainies. Rénovation structurelle, façades, intérieurs et finitions haut de gamme pour une mise aux normes totale du bâtiment.',
-    details: [
-      { icon:'fa-location-dot', label:'Localisation', val:'Parcelles Assainies Unité 19' },
-      { icon:'fa-building', label:'Type', val:'Rénovation R+2' },
-      { icon:'fa-user', label:'Propriétaire', val:'M. Mamadou Lamine CONTE' },
-    ],
-    media: [
-      { type:'image', src:'images/renovation.png' },
-    ]
-  },
-{
-    cat: 'Rénovation · OUAKAM',
-    title: 'Immeuble R+4 — Cité Avion',
-    desc: 'Réfection complète d\'un immeuble R+4 à OUAKAM Cité Avion. Rénovation intégrale des parties communes, appartements et façades avec finitions haut de gamme.',
-    details: [
-      { icon:'fa-location-dot', label:'Localisation', val:'OUAKAM, Cité Avion, Dakar' },
-      { icon:'fa-building', label:'Type', val:'Rénovation R+4' },
-      { icon:'fa-user', label:'Propriétaire', val:'M. Aliou GADJIGO' },
-    ],
-    media: [
-      { type:'image', src:'images/renovation.png' },
-    ]
-  }
-];
-
-let lbIndex = 0, lbMediaIdx = 0;
-
-function openLightbox(i) {
-  lbIndex = i; lbMediaIdx = 0;
-  const p = projets[i];
-  document.getElementById('lb-cat').textContent = p.cat;
-  document.getElementById('lb-title').textContent = p.title;
-  document.getElementById('lb-desc').textContent = p.desc;
-  // details
-  document.getElementById('lb-details').innerHTML = p.details.map(d =>
-    `<div class="lb-detail"><i class="fa-solid ${d.icon}"></i><span><strong>${d.label} :</strong> ${d.val}</span></div>`
-  ).join('');
-  renderLbMedia();
-  document.getElementById('lightbox').classList.add('open');
+function openAnnoncePage(i) {
+  const a = annonces[i];
+  refEl.textContent = 'Référence ' + a.ref;
+  photo.src = a.img;
+  photo.alt = a.meta + ' — ' + a.city;
+  title.textContent = a.meta + ' — ' + a.city;
+  price.textContent = a.price;
+  desc.textContent = a.desc;
+  meta.textContent = a.meta + ' · ' + a.city;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
   document.body.style.overflow = 'hidden';
 }
-
-function renderLbMedia() {
-  const p = projets[lbIndex];
-  const m = p.media[lbMediaIdx];
-  const main = document.getElementById('lb-main');
-  if (m.type === 'video') {
-    main.innerHTML = `<video src="${m.src}" controls autoplay muted style="width:100%;height:100%;object-fit:cover;"></video>`;
-  } else {
-    main.innerHTML = `<img src="${m.src}" alt="" style="width:100%;height:100%;object-fit:cover;">`;
-  }
-  document.getElementById('lb-counter').textContent = `${lbMediaIdx+1} / ${p.media.length}`;
-  // thumbs
-  document.getElementById('lb-thumbs').innerHTML = p.media.map((med, idx) => {
-    const active = idx === lbMediaIdx ? 'active' : '';
-    if (med.type === 'video') {
-      return `<div class="lb-thumb-video ${active}" onclick="lbGoTo(${idx})"><i class="fa-solid fa-play"></i></div>`;
-    }
-    return `<img class="lb-thumb ${active}" src="${med.src}" onclick="lbGoTo(${idx})">`;
-  }).join('');
-  // hide nav if single
-  const show = p.media.length > 1 ? 'flex' : 'none';
-  document.querySelectorAll('.lb-nav').forEach(b => b.style.display = show);
-  document.getElementById('lb-counter').style.display = p.media.length > 1 ? 'block' : 'none';
-}
-
-function lbGoTo(idx) { lbMediaIdx = idx; renderLbMedia(); }
-function lbNav(dir) {
-  const len = projets[lbIndex].media.length;
-  lbMediaIdx = (lbMediaIdx + dir + len) % len;
-  renderLbMedia();
-}
-function closeLb() {
-  document.getElementById('lightbox').classList.remove('open');
+function closeAnnoncePage(event) {
+  if (event) event.stopPropagation();
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
   document.body.style.overflow = '';
-  document.getElementById('lb-main').innerHTML = '';
 }
-function closeLbOutside(e) { if (e.target === document.getElementById('lightbox')) closeLb(); }
+document.querySelectorAll('.annonce-full-card').forEach((card,i) => {
+  card.addEventListener('click', () => openAnnoncePage(i));
+});
+const closeBtn = document.querySelector('.annonce-modal-close.annonce-close');
+if (closeBtn) closeBtn.addEventListener('click', (event) => closeAnnoncePage(event));
+modal.addEventListener('click', e => { if (e.target === modal) closeAnnoncePage(e); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAnnoncePage(e); });
 
-function filterProj(btn, cat) {
-  document.querySelectorAll('.proj-filter').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.proj').forEach(card => {
-    const c = card.dataset.cat;
-    card.style.display = (cat === 'all' || c === cat) ? '' : 'none';
-  });
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
-window.addEventListener('load', () => setTimeout(() => document.getElementById('preloader').classList.add('hide'), 1900));
-function switchTab(btn, id) {
-  document.querySelectorAll('.svc-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('svc-' + id).classList.add('active');
-}
+// Même comportement Header que l'Accueil.
 const hdr = document.getElementById('header');
 window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 50));
 const burger = document.getElementById('burger');
 const mob = document.getElementById('mobileNav');
-
-// Create backdrop
-const backdrop = document.createElement('div');
-backdrop.className = 'mobile-nav-backdrop';
-document.body.appendChild(backdrop);
-
-function openMob() {
-  burger.classList.add('active');
-  mob.classList.add('open');
-  backdrop.classList.add('show');
-  document.body.style.overflow = 'hidden';
+if (burger && mob) {
+  const backdrop = document.createElement('div');
+  backdrop.className = 'mobile-nav-backdrop';
+  document.body.appendChild(backdrop);
+  function openMob() {
+    burger.classList.add('active'); mob.classList.add('open');
+    backdrop.classList.add('show'); document.body.style.overflow='hidden';
+  }
+  function closeMob() {
+    burger.classList.remove('active'); mob.classList.remove('open');
+    backdrop.classList.remove('show'); document.body.style.overflow='';
+  }
+  burger.addEventListener('click', () => mob.classList.contains('open') ? closeMob() : openMob());
+  backdrop.addEventListener('click', closeMob);
 }
-function closeMob() {
-  burger.classList.remove('active');
-  mob.classList.remove('open');
-  backdrop.classList.remove('show');
-  document.body.style.overflow = '';
-}
-burger.addEventListener('click', () => {
-  mob.classList.contains('open') ? closeMob() : openMob();
-});
-backdrop.addEventListener('click', closeMob);
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); } });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.reveal, .rl, .rr').forEach(el => obs.observe(el));
-function animCount(el, target) {
-  let n = 0; const step = target / 55;
-  const iv = setInterval(() => { n += step; if (n >= target) { el.textContent = target + '+'; clearInterval(iv); } else el.textContent = Math.floor(n); }, 22);
-}
-const cObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { animCount(e.target.querySelector('.stat-num'), parseInt(e.target.querySelector('.stat-num').dataset.target)); cObs.unobserve(e.target); } });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat').forEach(s => cObs.observe(s));
 </script>
 </body>
 </html>
