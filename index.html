@@ -1112,6 +1112,34 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
   .projets-grid { grid-template-columns: 1fr !important; }
 }
 
+
+/* ===== PARTENAIRE UNI MIND INVEST ===== */
+.partenaire-section{padding:88px 5%;background:#f7f5f0;position:relative;overflow:hidden}
+.partenaire-wrap{max-width:1400px;margin:0 auto}
+.partenaire-head{text-align:center;max-width:760px;margin:0 auto 38px}
+.partenaire-head .section-label{justify-content:center}
+.partenaire-head .gold-rule{margin:14px auto 18px}
+.partenaire-head p{font-size:13px;line-height:1.8;color:var(--text-3);max-width:680px;margin:0 auto}
+.partenaire-card{display:grid;grid-template-columns:320px 1fr;background:#fff;border:1px solid rgba(177,138,50,.22);box-shadow:0 18px 55px rgba(11,34,51,.08);min-height:360px}
+.partenaire-brand{background:linear-gradient(145deg,#0b2233,#123b56);color:#fff;padding:38px 30px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.partenaire-logo-box{width:220px;height:108px;background:#fff;display:flex;align-items:center;justify-content:center;padding:10px;margin-bottom:20px}
+.partenaire-logo-box img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.partenaire-name{font-family:var(--serif);font-size:26px;letter-spacing:1.5px;font-weight:600}
+.partenaire-tagline{font-size:9px;letter-spacing:2px;text-transform:uppercase;opacity:.7;margin-top:5px}
+.partenaire-site{margin-top:22px;display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:.2s}
+.partenaire-site:hover{background:var(--gold);border-color:var(--gold)}
+.partenaire-content{padding:42px 48px;display:flex;flex-direction:column;justify-content:center}
+.partenaire-kicker{font-size:9px;color:#b18a32;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:8px}
+.partenaire-content h3{font-family:var(--serif);font-size:30px;font-weight:500;color:var(--text);margin:0 0 24px}
+.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.expertise-grid>div{display:flex;align-items:center;gap:10px;border-top:1px solid var(--border);padding:13px 4px;color:var(--text)}
+.expertise-grid i{color:#b18a32;width:18px;text-align:center;font-size:13px}
+.expertise-grid span{font-size:12px;line-height:1.35}
+.partenaire-contact-row{display:flex;flex-wrap:wrap;gap:22px;margin-top:25px;padding-top:18px;border-top:1px solid var(--border);font-size:11px;color:var(--text-3)}
+.partenaire-contact-row div,.partenaire-contact-row a{display:flex;align-items:center;gap:8px;color:inherit;text-decoration:none}
+.partenaire-contact-row i{color:#b18a32}
+@media(max-width:900px){.partenaire-card{grid-template-columns:1fr}.partenaire-brand{padding:32px 24px}.partenaire-content{padding:34px 28px}.expertise-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.partenaire-section{padding:62px 5%}.partenaire-logo-box{width:200px;height:95px}.partenaire-content h3{font-size:26px}.expertise-grid{grid-template-columns:1fr}.partenaire-contact-row{flex-direction:column;gap:12px}}
 </style>
 </head>
 <body>
@@ -1246,6 +1274,8 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
     <div class="svc-item"><i class="fa-solid fa-lightbulb"></i><h4>Conseil</h4><p>Accompagnement stratégique et recommandations adaptées à votre projet.</p></div>
   </div>
 </section>
+
+
 
 <section class="projets" id="projets">
   <div class="projets-head reveal">
@@ -1424,6 +1454,47 @@ footer { background:#0f1a22;padding:80px 70px 36px; }
         <div class="form-row"><div class="fgroup full"><input type="text" placeholder="Objet — Construction, Rénovation, Immobilier..."></div></div>
         <div class="form-row"><div class="fgroup full"><textarea placeholder="Décrivez votre projet en détail..."></textarea></div></div>
         <button class="btn-submit"><span>Envoyer le message</span><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partenaire-section" id="partenaire">
+  <div class="partenaire-wrap reveal">
+    <div class="partenaire-head">
+      <div class="section-label">Notre partenaire</div>
+      <h2 class="section-h2">Un réseau d'<em>expertise</em></h2>
+      <div class="gold-rule"></div>
+      <p>Pour compléter notre accompagnement, Genius Immobilier &amp; BTP s’appuie sur des partenaires spécialisés et complémentaires.</p>
+    </div>
+
+    <div class="partenaire-card">
+      <div class="partenaire-brand">
+        <div class="partenaire-logo-box">
+          <img src="images/unimind-invest.png" alt="UNI MIND INVEST">
+        </div>
+        <div class="partenaire-name">UNI MIND INVEST</div>
+        <div class="partenaire-tagline">Mind Invest SUARL</div>
+        <a class="partenaire-site" href="https://www.unimind-sn.com/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-globe"></i> Visiter le site
+        </a>
+      </div>
+
+      <div class="partenaire-content">
+        <div class="partenaire-kicker">Expertise</div>
+        <h3>Des compétences au service de vos projets</h3>
+        <div class="expertise-grid">
+          <div><i class="fa-solid fa-calculator"></i><span>Comptabilité</span></div>
+          <div><i class="fa-solid fa-building-columns"></i><span>Banque, Finance</span></div>
+          <div><i class="fa-solid fa-file-invoice-dollar"></i><span>Fiscalité</span></div>
+          <div><i class="fa-solid fa-scale-balanced"></i><span>Conseil Juridique</span></div>
+          <div><i class="fa-solid fa-users"></i><span>Gestion des ressources humaines</span></div>
+          <div><i class="fa-solid fa-people-group"></i><span>Sociologie</span></div>
+        </div>
+        <div class="partenaire-contact-row">
+          <div><i class="fa-solid fa-location-dot"></i><span>Rond point 26 prolongement VDN</span></div>
+          <a href="tel:+221771075666"><i class="fa-solid fa-phone"></i><span>77 107 56 66</span></a>
+        </div>
       </div>
     </div>
   </div>
